@@ -1,0 +1,22 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "api/*": ["api/*"],
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
+      "hooks/*": ["hooks/*"],
+      "styles/*": ["styles/*"],
+      "types/*": [".expo/types/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "babel.config.js"
+  ]
+}
