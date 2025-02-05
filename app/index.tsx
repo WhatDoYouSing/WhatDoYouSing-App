@@ -1,9 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useTheme } from "../styles/ThemeProvider";
 
 export default function HomeScreen() {
+  const { colors, globalStyles } = useTheme();
+
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text style={globalStyles.basicText}>Home</Text>
     </View>
   );
 }
