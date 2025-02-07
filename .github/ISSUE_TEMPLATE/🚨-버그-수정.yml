@@ -1,7 +1,6 @@
 name: '🚨 버그 수정'
 description: 버그 수정 시 해당 이슈 템플릿을 사용하여 이슈를 생성해주세요.
 title: '[Fix]'
-labels: ''
 body:
   - type: textarea
     attributes:
