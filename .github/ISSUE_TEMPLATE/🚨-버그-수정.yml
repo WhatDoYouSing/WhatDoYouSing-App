@@ -1,0 +1,17 @@
+name: '🚨 버그 수정'
+description: 버그 수정 시 해당 이슈 템플릿을 사용하여 이슈를 생성해주세요.
+title: '[Fix]'
+labels: ''
+body:
+  - type: textarea
+    attributes:
+      label: 🚨 버그 설명
+      placeholder: 버그가 언제/어떻게 발생했는지 명확하게 적어주세요
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 🎬 정상 동작
+      placeholder: 기대했던 정상적인 동작에 대해서 설명해주세요
+    validations:
+      required: true
