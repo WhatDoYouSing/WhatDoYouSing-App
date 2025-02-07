@@ -1,6 +1,6 @@
-import React, { createContext, useContext } from "react";
-import colors from "./colors";
-import globalStyles from "./globalStyles";
+import React, { createContext, useContext } from 'react';
+import colors from './colors';
+import globalStyles from './globalStyles';
 
 // ThemeContext가 colors와 globalStyles 둘 다 포함하도록 설정
 const ThemeContext = createContext({
