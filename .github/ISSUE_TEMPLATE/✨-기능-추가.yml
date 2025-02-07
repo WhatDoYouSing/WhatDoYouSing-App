@@ -1,7 +1,6 @@
 name: '✨ 기능 추가'
 description: 기능 추가 시 해당 이슈 템플릿을 사용하여 이슈를 생성해주세요.
 title: '[Feat]'
-labels: ''
 body:
   - type: textarea
     attributes:
