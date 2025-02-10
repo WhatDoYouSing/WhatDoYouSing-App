@@ -1,6 +1,7 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "types": ["nativewind/types"],
     "baseUrl": "./",
     "paths": {
       "api/*": ["api/*"],
@@ -17,6 +18,7 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "babel.config.js"
+    "babel.config.js",
+    "nativewind-env.d.ts"
   ]
 }
