@@ -111,17 +111,16 @@ interface CustomTextProps extends TextProps {
   className?: string;
 }
 
-const CustomText: React.FC<CustomTextProps> = ({
+const Typo = ({
   variant = 'text-14_SB',
   children,
   style,
   className = '',
   ...rest
-}) => {
+}: CustomTextProps): JSX.Element => {
   const language = getFontForText(children);
   const token = typographyMapping[variant];
   const selectedFontFamily = token.fontFamily[language];
-
   return (
     <Text
       {...rest}
@@ -133,4 +132,4 @@ const CustomText: React.FC<CustomTextProps> = ({
   );
 };
 
-export default CustomText;
+export default Typo;
