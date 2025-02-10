@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-
-import { ThemeProvider } from '../styles/ThemeProvider';
+import '../global.css';
 
 // 로딩 중 화면 유지
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+const RootLayout = () => {
   const [fontsLoaded] = useFonts({
     'GothicA1-Regular': require('@expo-google-fonts/gothic-a1/GothicA1_400Regular.ttf'),
     'GothicA1-Bold': require('@expo-google-fonts/gothic-a1/GothicA1_700Bold.ttf'),
@@ -32,21 +31,21 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider>
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        <Stack.Screen name="index" />
-        <Stack.Screen name="details" />
-      </Stack>
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
+      <Stack.Screen name="index" />
+      <Stack.Screen name="details" />
+    </Stack>
   );
-}
+};
+
+export default RootLayout;
