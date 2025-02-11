@@ -1,12 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BottomNavigator from './BottomNavigator';
+import RootScreen from 'app/index';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" component={BottomNavigator} />
+      <Stack.Screen name="index" component={RootScreen} />
     </Stack.Navigator>
   );
 };
