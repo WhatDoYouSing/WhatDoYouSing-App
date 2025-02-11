@@ -1,14 +1,14 @@
 import { View } from 'react-native';
-import Typo from 'components/common/Typo';
+import { Typo } from 'components/common';
 
-const HomeScreen = () => {
+const MyScreen = () => {
   return (
     <View>
       <Typo variant="text-18_SB" className="text-brand">
-        Home
+        My
       </Typo>
     </View>
   );
 };
 
-export default HomeScreen;
+export default MyScreen;

@@ -1,7 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
-import HomeScreen from 'app/HomeScreen';
 import { IcCommunity, IcMy, IcRecord, IcUpload } from 'assets/svgs';
+
+import HomeScreen from 'app/screens/HomeScreen';
+import RecordScreen from 'app/screens/RecordScreen';
+import UploadScreen from 'app/screens/UploadScreen';
+import MyScreen from 'app/screens/MyScreen';
 
 const BottomNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -29,7 +33,7 @@ const BottomNavigator = () => {
       />
       <Tab.Screen
         name="record"
-        component={HomeScreen}
+        component={RecordScreen}
         options={{
           tabBarLabel: () => null,
           tabBarIcon: ({ color }) => <IcRecord fill={color} />,
@@ -37,7 +41,7 @@ const BottomNavigator = () => {
       />
       <Tab.Screen
         name="upload"
-        component={HomeScreen}
+        component={UploadScreen}
         options={{
           tabBarLabel: () => null,
           tabBarIcon: ({ color }) => <IcUpload fill={color} />,
@@ -45,7 +49,7 @@ const BottomNavigator = () => {
       />
       <Tab.Screen
         name="my"
-        component={HomeScreen}
+        component={MyScreen}
         options={{
           tabBarLabel: () => null,
           tabBarIcon: ({ color }) => <IcMy fill={color} />,
