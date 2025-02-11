@@ -1,0 +1,51 @@
+/* 20pt */
+.text-20pt_SB {
+  @apply text-20 font-SB;
+}
+
+/* 18pt */
+.text-18pt_SB {
+  @apply text-18 font-SB;
+}
+.text-18pt_M {
+  @apply text-18 font-M;
+}
+
+/* 16pt */
+.text-16pt_SB {
+  @apply text-16 font-SB;
+}
+.text-16pt_B {
+  @apply text-16 font-B;
+}
+.text-16pt_M {
+  @apply text-16 font-M;
+}
+.text-16pt_R {
+  @apply text-16 font-R;
+}
+.text-16pt_L {
+  @apply text-16 font-L;
+}
+
+/* 14pt */
+.text-14pt_SB {
+  @apply text-14 font-SB;
+}
+.text-14pt_M {
+  @apply text-14 font-M;
+}
+.text-14pt_R {
+  @apply text-14 font-R;
+}
+.text-14pt_L {
+  @apply text-14 font-L;
+}
+
+/* 12pt */
+.text-12pt_SB {
+  @apply text-12 font-SB;
+}
+.text-12pt_L {
+  @apply text-12 font-L;
+}
