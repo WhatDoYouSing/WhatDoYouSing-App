@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { IcArrowLeft, IcCalendarOff, IcCalendarOn, IcSearch } from 'assets/svgs';
 import Typo from './Typo';
@@ -21,7 +21,7 @@ const Header = ({
   const router = useRouter();
   return (
     <View className="w-full pt-12 bg-primaryBg border-b border-black">
-      <View className="relative flex flex-row items-center h-[60]">
+      <View className="relative flex flex-row justify-center items-center h-[60]">
         {(type === 'button' || type === 'icon' || type === 'non-icon') && (
           <TouchableOpacity
             className="absolute left-4 flex items-center justify-center w-10 h-10"
@@ -39,9 +39,9 @@ const Header = ({
           </TouchableOpacity>
         )}
 
-        <Text className="flex-1 text-center text-black text-lg font-semibold">
+        <Typo variant={'text-18_SB'} className="text-black">
           {title}
-        </Text>
+        </Typo>
 
         {type === 'button' && (
           <TouchableOpacity

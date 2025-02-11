@@ -1,4 +1,5 @@
-import Typo from './Typo';
+import Header from './Header';
 import LNB from './LNB';
+import Typo from './Typo';
 
-export { Typo, LNB };
+export { Header, LNB, Typo };
