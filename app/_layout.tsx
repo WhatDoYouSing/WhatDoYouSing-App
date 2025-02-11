@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import '../global.css';
+import StackNavigator from 'navigation/StackNavigator';
 
 // 로딩 중 화면 유지
 SplashScreen.preventAutoHideAsync();
@@ -30,16 +30,7 @@ const RootLayout = () => {
     return null;
   }
 
-  return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="details" />
-    </Stack>
-  );
+  return <StackNavigator />;
 };
 
 export default RootLayout;
