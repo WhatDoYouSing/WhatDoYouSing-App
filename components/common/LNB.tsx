@@ -9,6 +9,8 @@ interface LNBProps {
 }
 
 const LNB = ({ menuItems, selectedItem, onMenuSelect }: LNBProps) => {
+  const isFourItems = menuItems.length >= 4;
+
   return (
     <View className="flex flex-row w-full bg-secondaryBg border-b border-black h-11 box-content">
       {menuItems.map((label, index) => {
@@ -23,7 +25,7 @@ const LNB = ({ menuItems, selectedItem, onMenuSelect }: LNBProps) => {
           >
             <Typo
               variant={'text-16_M'}
-              className={`${isSelected ? 'text-primaryBg' : 'text-black'}`}
+              className={`${isSelected ? 'text-primaryBg' : 'text-black'} ${isFourItems ? 'text-center' : ''}`}
             >
               {label}
             </Typo>
