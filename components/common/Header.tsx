@@ -1,7 +1,7 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { IcArrowLeft, IcCalendarOff, IcCalendarOn, IcSearch } from 'assets/svgs';
-import colors from 'styles/colors';
+import Typo from './Typo';
 
 interface HeaderProps {
   title: string;
@@ -20,94 +20,50 @@ const Header = ({
 }: HeaderProps) => {
   const router = useRouter();
   return (
-    <View style={styles.container}>
-      <View style={styles.wrapper}>
-        {type === 'button' || type === 'icon' || type === 'non-icon' ? (
-          <TouchableOpacity style={styles.leftIcon} onPress={() => router.back()}>
+    <View className="w-full pt-12 bg-primaryBg border-b border-black">
+      <View className="relative flex flex-row items-center h-[60]">
+        {(type === 'button' || type === 'icon' || type === 'non-icon') && (
+          <TouchableOpacity
+            className="absolute left-4 flex items-center justify-center w-10 h-10"
+            onPress={() => router.back()}
+          >
             <IcArrowLeft />
           </TouchableOpacity>
-        ) : type === 'my' ? (
-          <TouchableOpacity style={styles.leftIcon} onPress={onBtnClick}>
-            {isCalendarActive ? <IcCalendarOn /> : <IcCalendarOff />}
-          </TouchableOpacity>
-        ) : null}
-
-        <Text style={styles.title}>{title}</Text>
-
-        {type === 'button' ? (
+        )}
+        {type === 'my' && (
           <TouchableOpacity
-            style={[styles.rightButton, isBtnActive && styles.activeRightButton]}
+            className="absolute left-4 flex items-center justify-center w-10 h-10"
             onPress={onBtnClick}
           >
-            <Text
-              style={[styles.rightButtonText, isBtnActive && styles.activeButtonText]}
+            {isCalendarActive ? <IcCalendarOn /> : <IcCalendarOff />}
+          </TouchableOpacity>
+        )}
+
+        <Text className="flex-1 text-center text-black text-lg font-semibold">
+          {title}
+        </Text>
+
+        {type === 'button' && (
+          <TouchableOpacity
+            className={`absolute right-4 py-2 px-3 rounded border ${isBtnActive ? 'border-black' : 'border-nonActiveGrey'}`}
+            onPress={onBtnClick}
+          >
+            <Typo
+              variant={'text-16_M'}
+              className={`${isBtnActive ? 'text-black' : 'text-nonActiveGrey'}`}
             >
               편집
-            </Text>
+            </Typo>
           </TouchableOpacity>
-        ) : type === 'icon' || type === 'my' || type === 'non-back' ? (
-          <TouchableOpacity style={styles.rightIcon}>
+        )}
+        {(type === 'icon' || type === 'my' || type === 'non-back') && (
+          <TouchableOpacity className="absolute right-4 flex items-center justify-center w-10 h-10">
             <IcSearch />
           </TouchableOpacity>
-        ) : null}
+        )}
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 48,
-    backgroundColor: colors.primaryBg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.black,
-  },
-  wrapper: {
-    position: 'relative',
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 60,
-  },
-  leftIcon: {
-    position: 'absolute',
-    left: 16,
-  },
-  title: {
-    flex: 1,
-    color: colors.black,
-    textAlign: 'center',
-    fontFamily: 'Gothic A1',
-    fontSize: 18,
-    fontStyle: 'normal',
-    fontWeight: '600',
-  },
-  rightIcon: {
-    position: 'absolute',
-    right: 16,
-  },
-  rightButton: {
-    position: 'absolute',
-    right: 16,
-    backgroundColor: colors.primaryBg,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 2,
-    borderWidth: 1,
-    borderColor: colors.nonActiveGrey,
-  },
-  rightButtonText: {
-    color: colors.nonActiveGrey,
-    fontFamily: 'Gothic A1',
-    fontSize: 16,
-    fontStyle: 'normal',
-    fontWeight: '500',
-  },
-  activeRightButton: {
-    borderColor: colors.black,
-  },
-  activeButtonText: {
-    color: colors.black,
-  },
-});
 
 export default Header;
