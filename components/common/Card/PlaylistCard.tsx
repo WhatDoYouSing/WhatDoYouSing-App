@@ -24,12 +24,11 @@ const defaultProps: PlaylistCardProps = {
   albumCover: [''],
   name: '담칠',
   dateTime: '24.08.18 23:09',
-  title: 'Graveyard - Stripped',
-  singer: 'Halsey',
+  title: '노트 4',
   lyric: "Oh, 'cause I keep diggin' myself down deeper I won't hhhhhhhhhddddd",
   comment:
     '약간 비 오는 날 공부하면서 듣기 좋은 노래\n할시 노래 중에 저는 이게 제일 좋드라구요',
-  isBig: false,
+  isBig: true,
 };
 
 const PlaylistCard = (props: PlaylistCardProps) => {

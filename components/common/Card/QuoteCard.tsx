@@ -26,7 +26,7 @@ const defaultProps: ProfCardProps = {
     '약간 비 오는 날 공부하면서 듣기 좋은 노래\n할시 노래 중에 저는 이게 제일 좋드라구요',
   nickname: '닉네임이아홉자인사람',
   isMy: true,
-  isClicked: true,
+  isClicked: false,
 };
 
 const QuoteCard = (props: ProfCardProps): JSX.Element => {
