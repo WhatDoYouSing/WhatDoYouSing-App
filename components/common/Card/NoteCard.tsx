@@ -1,9 +1,8 @@
-import Typo from './Typo';
+import { View, Image } from 'react-native';
 
-import ProfileHeader from './Card/ProfileHeader';
-import SongInfo from './Card/SongInfo';
-
-const defaultProfile = require('assets/images/common/default-profile.png');
+import Typo from '../Typo';
+import ProfileHeader from './ProfileHeader';
+import SongInfo from './SongInfo';
 
 interface ProfCardProps {
   //URL
@@ -31,7 +30,7 @@ const defaultProps: ProfCardProps = {
   lyric: "Oh, 'cause I keep diggin' myself down deeper I won't hhhhhhhhhddddd",
   comment:
     '약간 비 오는 날 공부하면서 듣기 좋은 노래\n할시 노래 중에 저는 이게 제일 좋드라구요',
-  isBig: false,
+  isBig: true,
   isLocation: false,
 };
 
@@ -53,15 +52,15 @@ const NoteCard = (props: ProfCardProps): JSX.Element => {
   };
 
   return (
-    <div className="w-full max-w-[390px]">
+    <View className="w-full max-w-md">
       {/* 사용자 프로필 */}
       <ProfileHeader profileImage={profileImage} name={name} dateTime={dateTime} />
       {/* 장소 정보 */}
       {isLocation && (
-        <div className="flex flex-col px-4 py-2">
+        <View className="flex flex-col px-4 py-2">
           <Typo variant="text-12_L">가비애</Typo>
           <Typo variant="text-12_L">서울특별시 마포구 와우산로 147-1</Typo>
-        </div>
+        </View>
       )}
       {/* 앨범 커버 및 곡 정보 */}
       <SongInfo
@@ -73,13 +72,13 @@ const NoteCard = (props: ProfCardProps): JSX.Element => {
       />
       {/* 사용자 코멘트 */}
       {isBig && (
-        <div className="px-4 py-2">
+        <View className="px-4 py-2">
           <Typo variant="text-14_R" numberOfLines={2} ellipsizeMode="tail">
             {comment}
           </Typo>
-        </div>
+        </View>
       )}
-    </div>
+    </View>
   );
 };
 

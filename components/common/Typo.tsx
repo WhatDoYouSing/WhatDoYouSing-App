@@ -153,7 +153,7 @@ const Typo = ({
   return (
     <Text
       {...rest}
-      className={`${token.tailwindClass} ${className} shrink-0`}
+      className={`${token.tailwindClass} ${className} shrink`}
       style={[
         { fontFamily: selectedFontFamily, fontSize: token.fontSize },
         weightStyle,
