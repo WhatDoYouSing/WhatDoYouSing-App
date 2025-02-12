@@ -1,4 +1,4 @@
-import { Modal, Pressable, TouchableOpacity, View } from 'react-native';
+import { Modal, Pressable, View } from 'react-native';
 import Typo from './Typo';
 
 interface BaseModalProps {
