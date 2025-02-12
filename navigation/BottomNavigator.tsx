@@ -7,6 +7,18 @@ import RecordScreen from 'app/screens/RecordScreen';
 import UploadScreen from 'app/screens/UploadScreen';
 import MyScreen from 'app/screens/MyScreen';
 
+const colors = {
+  secondaryBg: '#F5EDF0',
+  black: '#33292C',
+};
+
+const TAB_SCREENS = [
+  { name: 'community', component: HomeScreen, icon: IcCommunity },
+  { name: 'record', component: RecordScreen, icon: IcRecord },
+  { name: 'upload', component: UploadScreen, icon: IcUpload },
+  { name: 'my', component: MyScreen, icon: IcMy, isLast: true },
+];
+
 const BottomNavigator = () => {
   const Tab = createBottomTabNavigator();
 
@@ -15,77 +27,48 @@ const BottomNavigator = () => {
       initialRouteName="community"
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: styles.activeColor.color,
-        tabBarActiveBackgroundColor: styles.activeBg.backgroundColor,
-        tabBarInactiveTintColor: styles.inactiveColor.color,
-        tabBarItemStyle: styles.tabItem,
+        tabBarActiveTintColor: colors.secondaryBg,
+        tabBarInactiveTintColor: colors.black,
+        tabBarActiveBackgroundColor: colors.black,
         tabBarIconStyle: styles.tabIcon,
       }}
     >
-      <Tab.Screen
-        name="community"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: () => null,
-          tabBarIcon: ({ color }) => <IcCommunity fill={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="record"
-        component={RecordScreen}
-        options={{
-          tabBarLabel: () => null,
-          tabBarIcon: ({ color }) => <IcRecord fill={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="upload"
-        component={UploadScreen}
-        options={{
-          tabBarLabel: () => null,
-          tabBarIcon: ({ color }) => <IcUpload fill={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="my"
-        component={MyScreen}
-        options={{
-          tabBarLabel: () => null,
-          tabBarIcon: ({ color }) => <IcMy fill={color} />,
-          tabBarItemStyle: styles.lastTabItem,
-        }}
-      />
+      {TAB_SCREENS.map(({ name, component, icon, isLast }) => (
+        <Tab.Screen
+          key={name}
+          name={name}
+          component={component}
+          options={{
+            tabBarIcon: ({ color }) => icon({ fill: color }),
+            tabBarItemStyle: isLast ? styles.lastTabItem : styles.tabItem,
+          }}
+        />
+      ))}
     </Tab.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: '#F5EDF0',
+    backgroundColor: colors.secondaryBg,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#33292C',
-    height: 80,
-  },
-  activeColor: {
-    color: '#F5EDF0',
-  },
-  activeBg: {
-    backgroundColor: '#33292C',
-  },
-  inactiveColor: {
-    color: '#33292C',
+    borderColor: colors.black,
+    height: 82,
   },
   tabItem: {
     borderRightWidth: 1,
-    borderColor: '#33292C',
+    borderColor: colors.black,
+    height: 80,
   },
   lastTabItem: {
     borderRightWidth: 0,
+    height: 80,
   },
   tabIcon: {
-    paddingTop: 3,
+    marginTop: 3,
   },
 });
 

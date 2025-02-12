@@ -19,10 +19,14 @@ const Header = ({
   isCalendarActive = false,
 }: HeaderProps) => {
   const router = useRouter();
+
+  const showBackIcon = ['button', 'icon', 'non-icon'].includes(type);
+  const showSearchIcon = ['icon', 'my', 'non-back'].includes(type);
+
   return (
     <View className="w-full pt-12 bg-primaryBg border-b border-black">
       <View className="relative flex flex-row justify-center items-center h-[60]">
-        {(type === 'button' || type === 'icon' || type === 'non-icon') && (
+        {showBackIcon && (
           <TouchableOpacity
             className="absolute left-4 flex items-center justify-center w-10 h-10"
             onPress={() => router.back()}
@@ -30,6 +34,7 @@ const Header = ({
             <IcArrowLeft />
           </TouchableOpacity>
         )}
+
         {type === 'my' && (
           <TouchableOpacity
             className="absolute left-4 flex items-center justify-center w-10 h-10"
@@ -43,6 +48,12 @@ const Header = ({
           {title}
         </Typo>
 
+        {showSearchIcon && (
+          <TouchableOpacity className="absolute right-4 flex items-center justify-center w-10 h-10">
+            <IcSearch />
+          </TouchableOpacity>
+        )}
+
         {type === 'button' && (
           <TouchableOpacity
             className={`absolute right-4 py-2 px-3 rounded border ${isBtnActive ? 'border-black' : 'border-nonActiveGrey'}`}
@@ -54,11 +65,6 @@ const Header = ({
             >
               편집
             </Typo>
-          </TouchableOpacity>
-        )}
-        {(type === 'icon' || type === 'my' || type === 'non-back') && (
-          <TouchableOpacity className="absolute right-4 flex items-center justify-center w-10 h-10">
-            <IcSearch />
           </TouchableOpacity>
         )}
       </View>
