@@ -13,23 +13,16 @@ const BottomMenu = ({ menuItems, onlyCancel = false }: BottomMenuProps) => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    navigation.setOptions({
-      tabBarStyle: { display: 'none' },
-    });
-
-    return () => {
-      navigation.setOptions({
-        tabBarStyle: styles.tabBar,
-      });
-    };
+    navigation.setOptions({ tabBarStyle: { display: 'none' } });
+    return () => navigation.setOptions({ tabBarStyle: styles.tabBar });
   }, [navigation]);
 
   return (
     <View className="absolute bottom-0 flex flex-row w-full h-[82] bg-secondaryBg border-t border-b border-black">
       {menuItems.map(({ label, action }, index) => {
+        const isLastItem = index === menuItems.length - 1;
         const isCancel = label === '취소';
         const isDelete = label === '삭제';
-        const isLastItem = index === menuItems.length - 1;
 
         return (
           <TouchableOpacity
@@ -41,7 +34,13 @@ const BottomMenu = ({ menuItems, onlyCancel = false }: BottomMenuProps) => {
           >
             <Typo
               variant="text-16_SB"
-              className={isDelete || onlyCancel ? 'text-red-500' : 'text-black'}
+              className={
+                isDelete || onlyCancel
+                  ? 'text-brand'
+                  : isCancel
+                    ? 'text-grey'
+                    : 'text-black'
+              }
             >
               {label}
             </Typo>
