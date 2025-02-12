@@ -1,38 +1,25 @@
 import Typo from '../Typo';
 import { View, Image } from 'react-native';
+import { PlaylistInfoProps } from 'types/CardType';
 
-interface SongInfoProps {
-  albumCover: string[];
-  title: string;
-  lyric: string;
-  isBig?: boolean;
-}
-
-const PlaylistInfo = ({
-  albumCover,
-  title,
-  lyric,
-  isBig = false,
-}: SongInfoProps): JSX.Element => {
+const PlaylistInfo = ({ album_art, title, lyric, isBig = false }: PlaylistInfoProps) => {
   const defaultCover = [
     'https://i.scdn.co/image/ab67616d00001e0215e86c06309cad4f62f9dbdc',
     'https://i.scdn.co/image/ab67616d00001e0215e86c06309cad4f62f9dbdc',
     'https://i.scdn.co/image/ab67616d00001e0215e86c06309cad4f62f9dbdc',
   ];
   const covers =
-    albumCover && albumCover.length > 0 && albumCover[0] !== ''
-      ? albumCover
-      : defaultCover;
+    album_art && album_art.length > 0 && album_art[0] !== '' ? album_art : defaultCover;
 
-  const count = covers.length;
-  const containerSize = isBig ? 120 : 80;
+  const COUNT = covers.length;
+  const CONTAINER_SIZE = isBig ? 120 : 80;
 
   const rows =
-    count === 1
+    COUNT === 1
       ? [[0]] //전체 표시. 배열 안 숫자는 index 번호!
-      : count === 2
+      : COUNT === 2
         ? [[0], [1]] //세로 2줄
-        : count === 3
+        : COUNT === 3
           ? [[0], [1, 2]] //1행 1개, 2행 2개
           : [
               [0, 1], //2행 2열 배치
@@ -42,19 +29,19 @@ const PlaylistInfo = ({
   return (
     <View className="content flex flex-row px-4 py-2 gap-3">
       {/* 플리 이미지 레이아웃 세팅 */}
-      <View className={`${isBig ? 'w-[120px] h-[120px]' : 'w-20 h-20'}`}>
+      <View className={`w-${CONTAINER_SIZE} h-${CONTAINER_SIZE}`}>
         {rows.map((col, rowIndex) => {
           // 행 단위 반복
-          const rowHeight = containerSize / rows.length;
+          const rowHeight = CONTAINER_SIZE / rows.length;
           return (
             <View
               key={rowIndex}
               className="flex flex-row"
-              style={{ width: containerSize, height: rowHeight }}
+              style={{ width: CONTAINER_SIZE, height: rowHeight }}
             >
               {col.map((imgIndex) => {
                 // 열 단위 반복
-                const cellWidth = containerSize / col.length;
+                const cellWidth = CONTAINER_SIZE / col.length;
                 return (
                   <Image
                     key={imgIndex}

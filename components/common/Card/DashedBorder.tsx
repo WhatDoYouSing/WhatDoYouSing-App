@@ -2,18 +2,12 @@ import React, { useState } from 'react';
 import { View, LayoutChangeEvent } from 'react-native';
 import Svg, { Rect } from 'react-native-svg';
 
-interface DashedBorderProps {
-  children: React.ReactNode;
-  borderColor?: string;
-  borderWidth?: number;
-  borderRadius?: number;
-  dashArray?: string; // 예: "10,5" → dash 길이 10, 간격 5
-  className?: string;
-}
+import colors from 'styles/colors';
+import { DashedBorderProps } from 'types/CardType';
 
 const DashedBorder = ({
   children,
-  borderColor = '#33292C',
+  borderColor = colors.black,
   borderWidth = 1,
   borderRadius = 2,
   dashArray = '8,4',

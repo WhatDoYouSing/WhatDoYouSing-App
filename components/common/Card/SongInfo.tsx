@@ -2,30 +2,17 @@ import Typo from '../Typo';
 import { View, Image } from 'react-native';
 
 import { IcRecord } from 'assets/svgs';
+import { SongInfoProps } from 'types/CardType';
 
-interface SongInfoProps {
-  albumCover: string;
-  title: string;
-  singer: string;
-  lyric: string;
-  isBig?: boolean;
-}
-
-const SongInfo = ({
-  albumCover,
-  title,
-  singer,
-  lyric,
-  isBig = false,
-}: SongInfoProps): JSX.Element => {
+const SongInfo = ({ album_art, title, singer, lyric, isBig = false }: SongInfoProps) => {
   const defaultCover = 'https://i.scdn.co/image/ab67616d00001e0215e86c06309cad4f62f9dbdc';
   const imageStyle = isBig ? { width: 120, height: 120 } : { width: 80, height: 80 };
   return (
     <View className="w-full flex flex-row px-4 py-2 gap-3">
       <Image
-        className={`albumcover rounded-sm ${isBig ? 'w-[120px] h-[120px]' : 'w-20 h-20'} shrink-0`}
+        className={`rounded-sm max-w-md shrink-0`}
         source={{
-          uri: albumCover || defaultCover,
+          uri: album_art || defaultCover,
         }}
         style={imageStyle}
       />
