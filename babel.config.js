@@ -16,6 +16,7 @@ module.exports = function (api) {
             components: './components',
             constants: './constants',
             hooks: './hooks',
+            navigation: './navigation',
             styles: './styles',
             types: './.expo/types',
           },
