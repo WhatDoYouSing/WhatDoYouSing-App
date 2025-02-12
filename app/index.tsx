@@ -1,17 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native';
+import BottomNavigator from 'navigation/BottomNavigator';
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
-  );
-}
+const RootScreen = () => <BottomNavigator />;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default RootScreen;
