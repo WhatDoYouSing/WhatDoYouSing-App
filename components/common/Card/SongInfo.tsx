@@ -2,7 +2,7 @@ import Typo from '../Typo';
 import { View, Image } from 'react-native';
 
 import { IcRecord } from 'assets/svgs';
-import { SongInfoProps } from 'types/CardType';
+import { SongInfoProps } from 'types/Card/CardType';
 
 const SongInfo = ({ album_art, title, singer, lyric, isBig = false }: SongInfoProps) => {
   const defaultCover = 'https://i.scdn.co/image/ab67616d00001e0215e86c06309cad4f62f9dbdc';

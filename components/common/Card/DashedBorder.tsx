@@ -3,7 +3,7 @@ import { View, LayoutChangeEvent } from 'react-native';
 import Svg, { Rect } from 'react-native-svg';
 
 import colors from 'styles/colors';
-import { DashedBorderProps } from 'types/CardType';
+import { DashedBorderProps } from 'types/Card/CardType';
 
 const DashedBorder = ({
   children,
