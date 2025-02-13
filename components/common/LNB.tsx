@@ -5,10 +5,10 @@ import Typo from './Typo';
 interface LNBProps {
   menuItems: string[];
   selectedItem: string;
-  onMenuSelect: (label: string) => void;
+  handleMenuSelect: (label: string) => void;
 }
 
-const LNB = ({ menuItems, selectedItem, onMenuSelect }: LNBProps) => {
+const LNB = ({ menuItems, selectedItem, handleMenuSelect }: LNBProps) => {
   const isFourItems = menuItems.length >= 4;
 
   return (
@@ -21,7 +21,7 @@ const LNB = ({ menuItems, selectedItem, onMenuSelect }: LNBProps) => {
           <TouchableOpacity
             key={label}
             className={`flex-1 justify-center px-5 ${isSelected ? 'bg-black' : ''} ${isLastItem ? 'border-r-0' : 'border-r border-black'}`}
-            onPress={() => onMenuSelect(label)}
+            onPress={() => handleMenuSelect(label)}
           >
             <Typo
               variant={'text-16_M'}
