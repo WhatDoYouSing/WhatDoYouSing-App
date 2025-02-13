@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 import { Typo, ProfileHeader, PlaylistInfo } from 'components/common';
-import { PlaylistContent } from 'types/CardType';
+import { PlaylistCardType } from 'types/CardType';
 
-const PlaylistCard = (item: PlaylistContent) => {
+const PlaylistCard = (item: PlaylistCardType) => {
   return (
     <View className="w-full max-w-md py-2 gap-2">
       {/* 사용자 프로필 */}

@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 import { Typo, ProfileHeader, SongInfo } from 'components/common';
-import { NoteContent } from 'types/CardType';
+import { NoteCardType } from 'types/CardType';
 
-const NoteCard = (item: NoteContent) => {
+const NoteCard = (item: NoteCardType) => {
   return (
     <View className="w-full max-w-md">
       {/* 사용자 프로필 */}

@@ -1,13 +1,13 @@
-import { User } from 'types/CardType';
+import { UserType } from 'types/CardType';
 
-const baseUser1: User = {
+const baseUser1: UserType = {
   id: 101,
   username: 'user123',
   nickname: '담칠',
   profile: 2,
 };
 
-const baseUser2: User = {
+const baseUser2: UserType = {
   id: 102,
   username: 'user456',
   nickname: '노리',

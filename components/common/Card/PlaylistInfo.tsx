@@ -45,7 +45,7 @@ const PlaylistInfo = ({ album_art, title, lyric, isBig = false }: PlaylistInfoPr
                 return (
                   <Image
                     key={imgIndex}
-                    className="albumcover rounded-sm shrink-0"
+                    className="rounded-sm shrink-0"
                     source={{ uri: covers[imgIndex] }}
                     style={{ width: cellWidth, height: rowHeight }}
                   />

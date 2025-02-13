@@ -9,7 +9,7 @@ const ProfileHeader = ({
   nickname,
   created_at,
   is_updated,
-}: ProfileHeaderProps): JSX.Element => {
+}: ProfileHeaderProps) => {
   const profileImages: { [key: number]: string } = {
     1: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0kSUEAi8d8cn8EaQ4pRBe4CzXBo2lH2d91g&s',
     2: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0kSUEAi8d8cn8EaQ4pRBe4CzXBo2lH2d91g&s',

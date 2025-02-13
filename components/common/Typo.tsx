@@ -1,10 +1,14 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
 
 //내용 따라 폰트 설정값 바꾸는 함수
 export const getFontForText = (text: ReactNode): 'korean' | 'english' => {
-  if (typeof text !== 'string') return 'english'; //string이 아닐 때 (숫자) 폰트 처리
-  return /[가-힣]/.test(text) ? 'korean' : 'english';
+  if (typeof text === 'string') {
+    return /[가-힣]/.test(text) ? 'korean' : 'english';
+  }
+  // ReactNode를 문자열로 변환
+  const textContent = React.Children.toArray(text).join('');
+  return /[가-힣]/.test(textContent) ? 'korean' : 'english';
 };
 
 // 사용 가능한 variant 목록

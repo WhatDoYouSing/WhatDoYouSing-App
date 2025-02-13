@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 import { Typo, DashedBorder, SongInfo } from 'components/common';
-import { QuoteContent } from 'types/CardType';
+import { QuoteCardType } from 'types/CardType';
 
-const QuoteCard = (item: QuoteContent) => {
+const QuoteCard = (item: QuoteCardType) => {
   const cardContent = (
     <View className="w-full">
       {/* 장소 정보 - 본인 노트 인용 시에만 표시 */}
