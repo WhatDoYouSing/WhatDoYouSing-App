@@ -11,7 +11,7 @@
       "hooks/*": ["hooks/*"],
       "navigation/*": ["navigation/*"],
       "styles/*": ["styles/*"],
-      "types/*": [".expo/types/*"]
+      "types/*": ["types/*"]
     }
   },
   "include": [
