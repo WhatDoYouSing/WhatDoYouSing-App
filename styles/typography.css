@@ -49,7 +49,3 @@
 .text-12pt_L {
   @apply text-12 font-L;
 }
-
-.text-12pt_R {
-  @apply text-12 font-R;
-}
