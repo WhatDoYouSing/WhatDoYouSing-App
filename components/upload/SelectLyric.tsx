@@ -61,7 +61,7 @@ const SelectLyric = () => {
           <Typo variant="text-14_R" className="text-grey leading-[1.5]">
             {`아직 등록된 가사가 없습니다.\n가사를 직접 등록하시겠어요?`}
           </Typo>
-          <NextButton isBorder={false}>
+          <NextButton className="border-none">
             <IcPlus width={18} height={18} />
             <Typo variant="text-16_M" className="text-black">
               가사 직접 등록

@@ -3,25 +3,24 @@ import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 interface NextButtonProps extends TouchableOpacityProps {
   children: ReactNode;
-  isBorder?: boolean;
   isActive?: boolean;
   className?: string;
 }
 
 const NextButton = ({
   children,
-  isBorder = true,
-  isActive = false,
+  isActive = true,
   className = '',
   ...props
 }: NextButtonProps) => {
-  const borderStyle = isBorder ? 'border border-black' : '';
-  const backgroundStyle = isActive ? 'bg-black' : 'bg-secondaryBg';
+  const isActiveStyle = isActive
+    ? 'bg-secondaryBg border border-black'
+    : 'bg-primaryBg border border-nonActiveGrey';
 
   return (
     <TouchableOpacity
       {...props}
-      className={`flex-row justify-center items-center gap-1 pt-4 pb-[15] w-full rounded-[2] ${backgroundStyle} ${borderStyle} ${className}`}
+      className={`flex-row justify-center items-center gap-1 pt-4 pb-[15] w-full rounded-[2] ${isActiveStyle} ${className}`}
     >
       {children}
     </TouchableOpacity>
