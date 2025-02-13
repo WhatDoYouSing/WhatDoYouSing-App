@@ -8,7 +8,7 @@ const UploadScreen = () => {
       <Typo variant="text-18_SB" className="text-brand">
         Upload
       </Typo>
-      <FilterTags />
+      <FilterTags isUpload={false} showEmotion={false} />
     </View>
   );
 };

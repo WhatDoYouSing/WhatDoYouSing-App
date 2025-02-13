@@ -5,11 +5,11 @@ import Tag from './Tag';
 interface TagSectionProps {
   title?: string;
   tags: string[][];
-  selectedFilter: string[];
-  onSelectFilter: (tag: string) => void;
+  selectedTags: string[];
+  onSelectTag: (tag: string) => void;
 }
 
-const TagSection = ({ title, tags, selectedFilter, onSelectFilter }: TagSectionProps) => {
+const TagSection = ({ title, tags, selectedTags, onSelectTag }: TagSectionProps) => {
   return (
     <View className="p-4">
       <Typo variant="text-16_M">{title}</Typo>
@@ -20,8 +20,8 @@ const TagSection = ({ title, tags, selectedFilter, onSelectFilter }: TagSectionP
               <Tag
                 text={tag}
                 size="small"
-                isSelected={selectedFilter.includes(tag)}
-                onPress={() => onSelectFilter(tag)}
+                isSelected={selectedTags.includes(tag)}
+                onPress={() => onSelectTag(tag)}
               />
             </View>
           ))}

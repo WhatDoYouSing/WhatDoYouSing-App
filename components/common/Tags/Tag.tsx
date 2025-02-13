@@ -3,7 +3,7 @@ import Typo from '../Typo';
 import { cn } from 'utils/cn';
 
 interface TagProp {
-  size?: 'big' | 'small';
+  size?: 'small' | 'big';
   text: string;
   count?: number;
   isSelected?: boolean;
