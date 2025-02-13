@@ -1,4 +1,4 @@
-import { Button, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { Typo } from 'components/common';
 import { useCallback, useRef } from 'react';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
@@ -8,7 +8,7 @@ const HomeScreen = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   const handleClosePress = () => bottomSheetModalRef.current?.close();
-  const handleOpenPress = () => bottomSheetModalRef.current?.collapse();
+  const handleOpenPress = () => bottomSheetModalRef.current?.present();
 
   return (
     <View>
@@ -17,6 +17,7 @@ const HomeScreen = () => {
       </Typo>
       <Button onPress={handleOpenPress} title="open" />
       <BottomModal ref={bottomSheetModalRef} />
+      <Text>바텀 모달 아래</Text>
     </View>
   );
 };
