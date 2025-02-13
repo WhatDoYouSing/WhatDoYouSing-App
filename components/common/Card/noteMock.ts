@@ -1,4 +1,4 @@
-import { UserType } from 'types/CardType';
+import { UserType } from 'types/Card/CardType';
 
 const baseUser1: UserType = {
   id: 101,

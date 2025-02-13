@@ -1,6 +1,6 @@
 import Typo from '../Typo';
 import { View, Image } from 'react-native';
-import { ProfileHeaderProps } from 'types/CardType';
+import { ProfileHeaderProps } from 'types/Card/CardType';
 
 import { IcKebab, IcViewFriends } from 'assets/svgs';
 

@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Typo, DashedBorder, SongInfo } from 'components/common';
-import { QuoteCardType } from 'types/CardType';
+import { QuoteCardType } from 'types/Card/CardType';
 
 const QuoteCard = (item: QuoteCardType) => {
   const cardContent = (

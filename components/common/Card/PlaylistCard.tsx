@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Typo, ProfileHeader, PlaylistInfo } from 'components/common';
-import { PlaylistCardType } from 'types/CardType';
+import { PlaylistCardType } from 'types/Card/CardType';
 
 const PlaylistCard = (item: PlaylistCardType) => {
   return (
