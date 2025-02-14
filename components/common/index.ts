@@ -1,3 +1,4 @@
+import FilledButton from './FilledButton';
 import Header from './Header';
 import LNB from './LNB';
 import Typo from './Typo';
@@ -10,6 +11,7 @@ import PlaylistInfo from './Card/PlaylistInfo';
 import ProfileHeader from './Card/ProfileHeader';
 
 export {
+  FilledButton,
   Header,
   LNB,
   Typo,
