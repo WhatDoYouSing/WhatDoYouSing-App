@@ -1,16 +1,29 @@
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { Typo, ProfileHeader, SongInfo } from 'components/common';
-import { NoteCardType } from 'types/Card/CardType';
+import { NoteCardType, Selectable } from 'types/Card/CardType';
 
-const NoteCard = (item: NoteCardType) => {
+interface NoteCardProps {
+  item: NoteCardType & Selectable;
+}
+
+const NoteCard = ({ item }: NoteCardProps) => {
   return (
-    <View className="w-full max-w-md">
+    <TouchableOpacity
+      className="w-full max-w-md bg-primaryBg"
+      onLongPress={() => item.handleLongPress?.(item.id)}
+      activeOpacity={0.8}
+    >
       {/* 사용자 프로필 */}
       <ProfileHeader
         profile={item.user.profile}
         nickname={item.user.nickname}
         created_at={item.created_at}
         is_updated={item.is_updated}
+        visibility={item.visibility}
+        isSelectionMode={item.isSelectionMode || false}
+        isSelected={item.isSelected || false}
+        toggleSelectCard={item.toggleSelectCard}
+        id={item.id}
       />
 
       {/* 장소 정보 */}
@@ -38,7 +51,7 @@ const NoteCard = (item: NoteCardType) => {
           </Typo>
         </View>
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 
