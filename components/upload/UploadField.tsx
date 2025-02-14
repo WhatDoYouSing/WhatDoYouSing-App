@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import MusicInfo from './MusicInfo';
 import NextButton from './NextButton';
@@ -10,12 +10,7 @@ interface UploadFieldProps {
   tab: string;
 }
 const UploadField = ({ tab = '음원' }: UploadFieldProps) => {
-  const [inputs, setInputs] = useState({
-    song: '',
-    singer: '',
-    lyric: '끝이 안보이는 저 넓은 세상 문앞에  소중한 나로 데려다 준',
-    memo: '',
-  });
+  const [inputs, setInputs] = useState({ song: '', artist: '', lyric: '', memo: '' });
   const [location, setLocation] = useState({ placeName: '', address: '' });
   const [emotion, setEmotion] = useState('');
   const [visibility, setVisibility] = useState(VISIBILITY_OPTIONS[0].label);
@@ -26,14 +21,20 @@ const UploadField = ({ tab = '음원' }: UploadFieldProps) => {
     setInputs((prev) => ({ ...prev, [key]: value }));
   };
 
+  const fields = useMemo(() => {
+    return tab !== '직접'
+      ? UPLOAD_FIELDS.filter((field) => field.key !== 'song' && field.key !== 'artist')
+      : UPLOAD_FIELDS;
+  }, [tab]);
+
   return (
     <View className="flex-1 flex-col gap-[6]">
-      <MusicInfo music={resultData[0]} />
+      {tab !== '직접' && <MusicInfo music={resultData[0]} />}
 
       <View className="flex-1 bg-primaryBg">
         <ScrollView className="flex-1">
-          {UPLOAD_FIELDS.map((field, index) => {
-            const isLast = index === UPLOAD_FIELDS.length - 1;
+          {fields.map((field, index) => {
+            const isLast = index === fields.length - 1;
             return (
               <View key={field.key}>
                 <InputField.Container
@@ -47,7 +48,7 @@ const UploadField = ({ tab = '음원' }: UploadFieldProps) => {
                   ) : field.label === '감정' ? (
                     <InputField.Emotion
                       selectedEmotion={emotion}
-                      onSelectEmotion={(newEmotion) => setEmotion(newEmotion)}
+                      onSelectEmotion={setEmotion}
                     />
                   ) : field.label === '공개' ? (
                     <InputField.Visibility visibility={visibility} />

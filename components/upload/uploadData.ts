@@ -19,13 +19,14 @@ export const lyricData = [
 
 export const resultData = [
   {
-    albumCover: 'https://example.com/album1.jpg',
+    albumCover:
+      'https://images.genius.com/9b3a23c195210a663b0720f17ca40825.500x500x1.jpg',
     artist: '나상현씨밴드',
-    title: '낙하',
+    song: '낙하',
   },
   {
-    albumCover: 'https://example.com/album2.jpg',
+    albumCover: '',
     artist: '아이유',
-    title: '라일락',
+    song: '라일락',
   },
 ];

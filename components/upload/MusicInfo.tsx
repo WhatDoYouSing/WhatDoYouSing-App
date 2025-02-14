@@ -19,7 +19,7 @@ const MusicInfo = ({ isLargePadding = true, music }: MusicInfoProps) => {
       />
       <View>
         <Typo variant="text-14_M" className="text-black leading-[1.4]">
-          {music.title}
+          {music.song}
         </Typo>
         <Typo variant="text-14_M" className="text-grey leading-[1.4]">
           {music.artist}

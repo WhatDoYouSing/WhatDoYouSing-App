@@ -8,7 +8,7 @@ import { resultData } from './uploadData';
 export interface MusicInfoType {
   albumCover: string;
   artist: string;
-  title: string;
+  song: string;
 }
 
 const SearchMusic = () => {

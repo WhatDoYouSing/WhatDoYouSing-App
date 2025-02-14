@@ -9,7 +9,7 @@ export const UPLOAD_FIELDS = [
     isSmall: true,
   },
   {
-    key: 'singer',
+    key: 'artist',
     label: '가수',
     placeholder: '가수명을 적어주세요!',
     isRequired: true,
@@ -17,7 +17,7 @@ export const UPLOAD_FIELDS = [
   },
   { key: 'lyric', label: '가사', placeholder: '마음에 남은 가사를 적어주세요!' },
   { key: 'location', label: '위치' },
-  { key: 'emotion', label: '감정' },
+  { key: 'emotion', label: '감정', isRequired: true },
   { key: 'memo', label: '메모', placeholder: '메모를 적어주세요!', isRequired: true },
   { key: 'visibility', label: '공개', isRequired: true },
 ];
