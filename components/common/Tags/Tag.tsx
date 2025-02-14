@@ -2,7 +2,7 @@ import { TouchableOpacity, View } from 'react-native';
 import Typo from '../Typo';
 import { cn } from 'utils/cn';
 
-interface TagProp {
+interface TagProps {
   size?: 'small' | 'big';
   text: string;
   count?: number;
@@ -10,7 +10,7 @@ interface TagProp {
   onPress?: () => void;
 }
 
-const Tag = ({ size = 'small', text, count, isSelected, onPress }: TagProp) => {
+const Tag = ({ size = 'small', text, count, isSelected, onPress }: TagProps) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View

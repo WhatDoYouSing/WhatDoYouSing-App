@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import TagSection from './TagSection';
 
-interface FilterTagsProp {
+interface FilterTagsProps {
   isUpload?: boolean;
   showEmotion?: boolean;
 }
-const FilterTags = ({ isUpload, showEmotion }: FilterTagsProp) => {
+const FilterTags = ({ isUpload, showEmotion }: FilterTagsProps) => {
   // 필터 태그 용
   const emotions = [
     ['행복', '설렘', '희망', '사랑', '평온', '벅참', '감동'],
