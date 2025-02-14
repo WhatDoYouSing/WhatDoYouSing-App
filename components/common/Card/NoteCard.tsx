@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Typo, ProfileHeader, SongInfo } from 'components/common';
-import { NoteCardType } from 'types/CardType';
+import { NoteCardType } from 'types/Card/CardType';
 
 const NoteCard = (item: NoteCardType) => {
   return (

@@ -1,6 +1,6 @@
 import Typo from '../Typo';
 import { View, Image } from 'react-native';
-import { PlaylistInfoProps } from 'types/CardType';
+import { PlaylistInfoProps } from 'types/Card/CardType';
 
 const PlaylistInfo = ({ album_art, title, lyric, isBig = false }: PlaylistInfoProps) => {
   const defaultCover = [

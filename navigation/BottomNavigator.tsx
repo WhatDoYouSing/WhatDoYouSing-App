@@ -50,7 +50,7 @@ const BottomNavigator = () => {
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: colors.secondaryBg,
     borderTopWidth: 1,
