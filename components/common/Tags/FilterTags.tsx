@@ -41,9 +41,9 @@ const FilterTags = ({ isUpload, showEmotion }: FilterTagsProp) => {
     setSelectedFilter((prev) => {
       const newTags = new Set(prev[category]);
       if (newTags.has(tag)) {
-        newTags.delete(tag);
+        newTags.delete(tag); // 클릭되어 있던 태그가 클릭되면 배열에서 제거
       } else {
-        newTags.add(tag);
+        newTags.add(tag); // 클릭되어 있지 않던 태그는 배열에 추가
       }
       return { ...prev, [category]: newTags };
     });

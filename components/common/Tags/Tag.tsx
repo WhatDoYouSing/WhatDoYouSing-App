@@ -15,20 +15,32 @@ const Tag = ({ size = 'small', text, count, isSelected, onPress }: TagProp) => {
     <TouchableOpacity onPress={onPress}>
       <View
         className={cn(
+          'flex-row items-baseline',
           size === 'small'
             ? 'px-[10px] pt-2 pb-[7px] rounded-[2px]'
-            : 'px-[10px] pt-[10px] pb-[9px] border-[1px] border-black rounded-[2px]',
-          isSelected ? 'bg-black' : 'bg-secondaryBg'
+            : 'px-[10px] pb-[8px] border-[1px] border-black rounded-[2px]',
+          isSelected ? 'bg-black' : 'bg-secondaryBg',
+          count ? 'pt-[10px]' : 'pt-[11px]'
         )}
       >
         <Typo
           variant={size === 'small' ? 'text-12_SB' : 'text-16_M'}
-          className={cn(isSelected ? 'text-secondaryBg' : 'text-Black')}
+          className={cn(
+            size === 'big' ? 'leading-[18px]' : 'leading-[14px]',
+            isSelected ? 'text-secondaryBg' : 'text-Black'
+          )}
         >
           {text}
         </Typo>
         {size === 'big' && (
-          <Typo variant="text-16_M" className="ml-1">
+          <Typo
+            variant="text-16_M"
+            className={cn(
+              size === 'big' ? 'leading-[18px]' : 'leading-[14px]',
+              isSelected ? 'text-secondaryBg' : 'text-Black',
+              count ? 'ml-1 ' : ''
+            )}
+          >
             {count}
           </Typo>
         )}
