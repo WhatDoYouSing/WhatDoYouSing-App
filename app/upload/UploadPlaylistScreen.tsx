@@ -1,14 +1,14 @@
 import { View } from 'react-native';
 import { Typo } from 'components/common';
 
-const UploadScreen = () => {
+const UploadPlaylistScreen = () => {
   return (
     <View>
       <Typo variant="text-18_SB" className="text-brand">
-        Upload
+        UploadPlaylistScreen
       </Typo>
     </View>
   );
 };
 
-export default UploadScreen;
+export default UploadPlaylistScreen;
