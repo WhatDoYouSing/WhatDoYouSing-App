@@ -17,7 +17,7 @@ const CtgryTopBar = ({
   setSelectedCategory,
   selectedCount,
 }: CtgryTopBarProps) => {
-  const categories = ['통합', '노트', '플리'];
+  const CATEGORIES = ['통합', '노트', '플리'];
   const MENU_ITEMS = ['전체', '팔로우 중'];
   const { menuItems, selectedItem, handleMenuSelect } = useTabMenu(MENU_ITEMS);
   const [isActive, setIsActive] = useState(false);
@@ -58,7 +58,7 @@ const CtgryTopBar = ({
         {/* 드롭다운 메뉴 */}
         {isActive && (
           <CtgryDropdown
-            categories={categories}
+            categories={CATEGORIES}
             selectedCategory={selectedCategory}
             onSelect={selectCategory}
           />

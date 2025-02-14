@@ -148,7 +148,6 @@ const Typo = ({
   className = '',
   ...rest
 }: CustomTextProps) => {
-  const textContent = typeof children === 'string' ? children : '';
   const language = getFontForText(children);
   const token = typographyMapping[variant];
 
@@ -160,7 +159,7 @@ const Typo = ({
   return (
     <Text
       {...rest}
-      className={`${token.tailwindClass} ${className} shrink`}
+      className={`${token.tailwindClass} ${className}`}
       style={[
         { fontFamily: selectedFontFamily, fontSize: token.fontSize },
         weightStyle,
