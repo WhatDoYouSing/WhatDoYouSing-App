@@ -56,13 +56,13 @@ const PlaylistInfo = ({ album_art, title, lyric, isBig = false }: PlaylistInfoPr
         })}
       </View>
       {/* 플리 정보 부분 */}
-      <View className="flex flex-col justify-between">
+      <View className="flex flex-col justify-between shrink">
         <Typo variant={isBig ? 'text-14_R' : 'text-12_R'}>{title}</Typo>
         <Typo
           variant={isBig ? 'text-16_M' : 'text-14_M'}
           numberOfLines={2}
           ellipsizeMode="tail"
-          className="shrink max-w-xs"
+          className="w-auto grow-0 shrink-0 max-w-xs"
         >
           {lyric}
         </Typo>

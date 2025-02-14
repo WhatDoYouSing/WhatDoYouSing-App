@@ -32,7 +32,7 @@ const SongInfo = ({ album_art, title, singer, lyric, isBig = false }: SongInfoPr
           variant="text-14_M"
           numberOfLines={2}
           ellipsizeMode="tail"
-          className="w-auto grow-0  shrink-0 max-w-xs"
+          className="w-auto grow-0 max-w-xs"
         >
           {lyric}
         </Typo>
