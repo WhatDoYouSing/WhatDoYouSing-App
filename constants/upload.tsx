@@ -41,9 +41,9 @@ export const EMOTION_LIST = [
 ];
 
 export const VISIBILITY_OPTIONS = [
-  { key: '전체공개', label: '전체공개', icon: <IcViewAll width={14} height={14} /> },
-  { key: '친구공개', label: '친구공개', icon: <IcViewFriends width={14} height={14} /> },
-  { key: '나만보기', label: '나만보기', icon: <IcViewOnlyMe width={14} height={14} /> },
+  { key: 'public', label: '전체공개', icon: <IcViewAll width={14} height={14} /> },
+  { key: 'friends', label: '친구공개', icon: <IcViewFriends width={14} height={14} /> },
+  { key: 'private', label: '나만보기', icon: <IcViewOnlyMe width={14} height={14} /> },
 ];
 
 export function getVisibilityIcon(label: string) {

@@ -13,7 +13,7 @@ const UploadField = ({ tab = '음원' }: UploadFieldProps) => {
   const [inputs, setInputs] = useState({ song: '', artist: '', lyric: '', memo: '' });
   const [location, setLocation] = useState({ placeName: '', address: '' });
   const [emotion, setEmotion] = useState('');
-  const [visibility, setVisibility] = useState(VISIBILITY_OPTIONS[0].label);
+  const [visibility, setVisibility] = useState(VISIBILITY_OPTIONS[0].key);
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
