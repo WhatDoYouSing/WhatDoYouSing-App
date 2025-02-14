@@ -55,7 +55,8 @@ const SearchMusic = () => {
             // 검색 결과 없음
             <View className="flex-1 justify-center items-center bg-primaryBg">
               <Typo variant="text-14_R" className="text-grey text-center leading-[1.5]">
-                {`검색결과가 없습니다.\n다른 검색어로 검색해보시는 건 어떨까요?`}
+                검색결과가 없습니다. <br />
+                다른 검색어로 검색해보시는 건 어떨까요?
               </Typo>
             </View>
           )}

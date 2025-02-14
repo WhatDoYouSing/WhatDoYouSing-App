@@ -57,7 +57,8 @@ const SelectLyric = () => {
       ) : (
         <View className="flex-1 justify-center items-center gap-4 px-8">
           <Typo variant="text-14_R" className="text-grey leading-[1.5]">
-            {`아직 등록된 가사가 없습니다.\n가사를 직접 등록하시겠어요?`}
+            아직 등록된 가사가 없습니다. <br />
+            가사를 직접 등록하시겠어요?
           </Typo>
           <FilledButton text="가사 직접 등록" type={'borderless'} hasIcon />
         </View>

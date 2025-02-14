@@ -50,3 +50,24 @@ export function getVisibilityIcon(label: string) {
   const option = VISIBILITY_OPTIONS.find((opt) => opt.label === label);
   return option ? option.icon : null;
 }
+
+export const TAG_LIST = [
+  {
+    title: '시간',
+    tags: [['새벽', '아침', '오후', '저녁', '밤']],
+  },
+  {
+    title: '계절',
+    tags: [['봄', '여름', '가을', '겨울']],
+  },
+  {
+    title: '일상맥락',
+    tags: [
+      ['산책', '여행', '피크닉', '드라이브', '자기전'],
+      ['출근/등교', '퇴근/하교'],
+      ['일', '공부', '독서', '운동', '집안일', '외출준비'],
+      ['공연', '파티', '새해', '졸업'],
+      ['카페', '집', '회사', '노래방'],
+    ],
+  },
+];

@@ -4,6 +4,7 @@ import { TextInputProps, TouchableOpacityProps } from 'react-native';
 import { Typo } from 'components/common';
 import { IcX } from 'assets/svgs';
 import { EMOTION_LIST, getVisibilityIcon } from 'constants/upload';
+import Chip from './Chip';
 
 interface ContainerProps {
   label: string;
@@ -128,20 +129,12 @@ const Emotion = ({ selectedEmotion, onSelectEmotion }: EmotionProps) => {
   return (
     <View className="flex-1 flex-wrap flex-row gap-2">
       {EMOTION_LIST.map((emotion) => (
-        <TouchableOpacity
+        <Chip
           key={emotion}
-          onPress={() => onSelectEmotion(emotion)}
-          className={`px-3 py-2 rounded-sm ${
-            selectedEmotion === emotion ? 'bg-black' : 'bg-secondaryBg'
-          }`}
-        >
-          <Typo
-            variant="text-12_SB"
-            className={selectedEmotion === emotion ? 'text-secondaryBg' : 'text-black'}
-          >
-            {emotion}
-          </Typo>
-        </TouchableOpacity>
+          label={emotion}
+          selected={selectedEmotion === emotion}
+          onPress={onSelectEmotion}
+        />
       ))}
     </View>
   );
