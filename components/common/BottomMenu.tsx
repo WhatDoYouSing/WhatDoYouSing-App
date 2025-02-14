@@ -5,7 +5,7 @@ import Typo from './Typo';
 import { styles } from 'navigation/BottomNavigator';
 
 interface BottomMenuProps {
-  menuItems: { label: string; action: () => void }[];
+  menuItems: { label: string; action: <T extends unknown[]>(...args: T) => void }[];
   onlyCancel?: boolean;
 }
 
