@@ -4,17 +4,17 @@ import Typo from './Typo';
 
 interface LNBProps {
   tabItems: string[];
-  selectedItem: string;
+  selectedTab: string;
   handleTabSelect: (label: string) => void;
 }
 
-const LNB = ({ tabItems, selectedItem, handleTabSelect }: LNBProps) => {
+const LNB = ({ tabItems, selectedTab, handleTabSelect }: LNBProps) => {
   const isFourItems = tabItems.length >= 4;
 
   return (
     <View className="flex flex-row w-full bg-secondaryBg border-b border-black h-11 box-content">
       {tabItems.map((label, index) => {
-        const isSelected = selectedItem === label;
+        const isSelected = selectedTab === label;
         const isLastItem = index === tabItems.length - 1;
 
         return (

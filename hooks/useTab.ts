@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
 const useTab = (tabItems: string[]) => {
-  const [selectedItem, setSelectedItems] = useState(tabItems[0]);
+  const [selectedTab, setSelectedTab] = useState(tabItems[0]);
 
   const handleTabSelect = (label: string) => {
-    setSelectedItems(label);
+    setSelectedTab(label);
   };
 
   return {
     tabItems,
-    selectedItem,
+    selectedTab,
     handleTabSelect,
   };
 };
