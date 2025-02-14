@@ -3,16 +3,14 @@ import { View, TouchableOpacity, ScrollView } from 'react-native';
 import { Typo } from 'components/common';
 import MusicInfo from './MusicInfo';
 import NextButton from './NextButton';
-import { IcPlus } from 'assets/svgs';
 
 import { lyricData, resultData } from './uploadData';
 
+const MAX_LENGTH = 210;
+
 const SelectLyric = () => {
   const [lyrics, setLyrics] = useState(lyricData); // 추후 오픈 API 연결을 통해 가사 데이터 받아올 예정
-
   const [selectedLines, setSelectedLines] = useState([]);
-
-  const MAX_LENGTH = 210;
 
   const handleLinePress = (index: number) => {
     const lineText = lyrics[index];
@@ -39,8 +37,8 @@ const SelectLyric = () => {
       <MusicInfo music={resultData[0]} />
 
       {lyrics.length > 0 ? (
-        <View className="flex-1 justify-center items-center bg-primaryBg">
-          <ScrollView className="flex-1 p-4 pb-20 w-full">
+        <View className="flex-1 bg-primaryBg">
+          <ScrollView className="flex-1 p-4">
             {lyrics.map((line, index) => {
               const isSelected = selectedLines.includes(index);
               return (
@@ -54,6 +52,7 @@ const SelectLyric = () => {
                 </TouchableOpacity>
               );
             })}
+            <View className="h-20" />
           </ScrollView>
         </View>
       ) : (
@@ -61,21 +60,12 @@ const SelectLyric = () => {
           <Typo variant="text-14_R" className="text-grey leading-[1.5]">
             {`아직 등록된 가사가 없습니다.\n가사를 직접 등록하시겠어요?`}
           </Typo>
-          <NextButton className="border-none">
-            <IcPlus width={18} height={18} />
-            <Typo variant="text-16_M" className="text-black">
-              가사 직접 등록
-            </Typo>
-          </NextButton>
+          <NextButton text="가사 직접 등록" className="border-none" hasIcon />
         </View>
       )}
 
       <View className="absolute bottom-4 w-full px-4">
-        <NextButton>
-          <Typo variant="text-16_M" className="text-black">
-            다음
-          </Typo>
-        </NextButton>
+        <NextButton text=" 다음" />
       </View>
     </View>
   );

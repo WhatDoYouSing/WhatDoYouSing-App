@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { Typo } from 'components/common';
 import NextButton from './NextButton';
-import InputField from './InputField';
+import { InputField } from './InputField';
 import useYouTubeInfo from 'hooks/useYouTubeInfo';
 
 const UploadLink = () => {
@@ -11,14 +11,14 @@ const UploadLink = () => {
 
   return (
     <View className="flex-1 flex-col bg-primaryBg">
-      <InputField
-        label="링크"
-        placeholder="유튜브 링크를 입력해주세요!"
-        value={url}
-        onChangeText={handleUrlChange}
-        onClear={handleClear}
-        isRequired
-      />
+      <InputField.Container label="링크" isRequired>
+        <InputField.TextField
+          placeholder="유튜브 링크를 입력해주세요!"
+          value={url}
+          onChangeText={handleUrlChange}
+          onClear={handleClear}
+        />
+      </InputField.Container>
 
       <View className="w-full h-[1] bg-secondaryBg" />
 
@@ -29,7 +29,7 @@ const UploadLink = () => {
           <View className="flex-1 gap-1">
             <Typo
               variant="text-14_M"
-              className=" text-black leading-[1.4]"
+              className="text-black leading-[1.4]"
               numberOfLines={2}
               ellipsizeMode="tail"
             >
@@ -48,14 +48,7 @@ const UploadLink = () => {
       )}
 
       <View className="absolute bottom-4 w-full px-4">
-        <NextButton isActive={!!video.id}>
-          <Typo
-            variant="text-16_M"
-            className={!!video.id ? 'text-black' : 'text-nonActiveGrey'}
-          >
-            다음
-          </Typo>
-        </NextButton>
+        <NextButton text="다음" isActive={!!video.id} />
       </View>
     </View>
   );
