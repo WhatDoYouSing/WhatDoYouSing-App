@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
-import { Typo } from 'components/common';
+import { FilledButton, Typo } from 'components/common';
 import MusicInfo from './MusicInfo';
-import NextButton from './NextButton';
 
 import { lyricData, resultData } from './uploadData';
 
@@ -60,12 +59,12 @@ const SelectLyric = () => {
           <Typo variant="text-14_R" className="text-grey leading-[1.5]">
             {`아직 등록된 가사가 없습니다.\n가사를 직접 등록하시겠어요?`}
           </Typo>
-          <NextButton text="가사 직접 등록" className="border-none" hasIcon />
+          <FilledButton text="가사 직접 등록" type={'borderless'} hasIcon />
         </View>
       )}
 
       <View className="absolute bottom-4 w-full px-4">
-        <NextButton text=" 다음" />
+        <FilledButton text=" 다음" />
       </View>
     </View>
   );

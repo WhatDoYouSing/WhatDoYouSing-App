@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { Typo } from 'components/common';
-import NextButton from './NextButton';
+import { FilledButton, Typo } from 'components/common';
 import { InputField } from './InputField';
 import useYouTubeInfo from 'hooks/useYouTubeInfo';
 
@@ -48,7 +47,7 @@ const UploadLink = () => {
       )}
 
       <View className="absolute bottom-4 w-full px-4">
-        <NextButton text="다음" isActive={!!video.id} />
+        <FilledButton text="다음" isActive={!!video.id} />
       </View>
     </View>
   );

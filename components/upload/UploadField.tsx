@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import MusicInfo from './MusicInfo';
-import NextButton from './NextButton';
 import { InputField } from './InputField';
 import { UPLOAD_FIELDS, VISIBILITY_OPTIONS } from 'constants/upload';
 import { resultData } from './uploadData';
+import { FilledButton } from 'components/common';
 
 interface UploadFieldProps {
   tab: string;
@@ -73,7 +73,7 @@ const UploadField = ({ tab = '음원' }: UploadFieldProps) => {
       </View>
 
       <View className="absolute bottom-4 w-full px-4">
-        <NextButton text="다음" />
+        <FilledButton text="다음" />
       </View>
     </View>
   );
