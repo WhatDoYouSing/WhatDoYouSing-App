@@ -3,7 +3,7 @@ import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { Typo } from 'components/common';
 import { IcPlus } from 'assets/svgs';
 
-type ButtonType = 'filled' | 'ghost' | 'outline' | 'borderless';
+type ButtonType = 'solid' | 'ghost' | 'outline' | 'borderless';
 
 interface FilledButtonProps extends TouchableOpacityProps {
   text: string;
@@ -33,7 +33,7 @@ const FilledButton = ({
     textColor = 'text-nonActiveGrey';
   } else {
     switch (type) {
-      case 'filled':
+      case 'solid':
         typeStyle = 'bg-black border border-black';
         textColor = 'text-secondaryBg';
         break;
