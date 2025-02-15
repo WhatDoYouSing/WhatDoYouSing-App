@@ -50,7 +50,7 @@ export interface PlaylistCardType extends Omit<BaseContent, 'album_art'> {
   isBig?: boolean;
 }
 
-export interface ProfileHeaderProps extends Selectable {
+export interface ProfileHeaderProps extends SelectableProps {
   profile: number;
   nickname: string;
   visibility: string;
@@ -92,7 +92,7 @@ export interface DashedBorderProps {
   className?: string;
 }
 
-export interface Selectable {
+export interface SelectableProps {
   isSelected?: boolean;
   isSelectionMode?: boolean;
   toggleSelectCard?: (id: number) => void; // 카드 선택/해제 함수

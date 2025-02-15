@@ -14,7 +14,7 @@ const CtgryDropdown = ({
 }: CtgryDropdownProps) => {
   return (
     <View
-      className="absolute top-[96px] z-10 bg-white shadow-md shadow-black/20
+      className="absolute left-[2px] top-[96px] z-10 bg-white shadow-md shadow-black/20
       rounded-sm w-28 border border-black"
     >
       {categories.map((category) => (

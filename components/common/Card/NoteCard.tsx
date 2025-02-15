@@ -1,9 +1,9 @@
 import { View, TouchableOpacity } from 'react-native';
 import { Typo, ProfileHeader, SongInfo } from 'components/common';
-import { NoteCardType, Selectable } from 'types/Card/CardType';
+import { NoteCardType, SelectableProps } from 'types/Card/CardType';
 
 interface NoteCardProps {
-  item: NoteCardType & Selectable;
+  item: NoteCardType & SelectableProps;
 }
 
 const NoteCard = ({ item }: NoteCardProps) => {
@@ -15,15 +15,17 @@ const NoteCard = ({ item }: NoteCardProps) => {
     >
       {/* 사용자 프로필 */}
       <ProfileHeader
-        profile={item.user.profile}
-        nickname={item.user.nickname}
-        created_at={item.created_at}
-        is_updated={item.is_updated}
-        visibility={item.visibility}
-        isSelectionMode={item.isSelectionMode || false}
-        isSelected={item.isSelected || false}
-        toggleSelectCard={item.toggleSelectCard}
-        id={item.id}
+        item={{
+          profile: item.user.profile,
+          nickname: item.user.nickname,
+          created_at: item.created_at,
+          is_updated: item.is_updated,
+          visibility: item.visibility,
+          isSelectionMode: item.isSelectionMode || false,
+          isSelected: item.isSelected || false,
+          toggleSelectCard: item.toggleSelectCard,
+          id: item.id,
+        }}
       />
 
       {/* 장소 정보 */}

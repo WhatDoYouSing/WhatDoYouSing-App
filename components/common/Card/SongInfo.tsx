@@ -24,12 +24,12 @@ const SongInfo = ({ album_art, title, singer, lyric, isBig = false }: SongInfoPr
           {/* 감정 아이콘 들어갈 자리 */}
 
           <View className="flex flex-col gap-[2px]">
-            <Typo variant="text-12_R">{title}</Typo>
-            <Typo variant="text-12_R">{singer}</Typo>
+            <Typo variant={`${isBig ? 'text-14_R' : 'text-12_R'}`}>{title}</Typo>
+            <Typo variant={`${isBig ? 'text-14_R' : 'text-12_R'}`}>{singer}</Typo>
           </View>
         </View>
         <Typo
-          variant="text-14_M"
+          variant={`${isBig ? 'text-16_M' : 'text-14_M'}`}
           numberOfLines={2}
           ellipsizeMode="tail"
           className="w-auto grow-0 max-w-xs"

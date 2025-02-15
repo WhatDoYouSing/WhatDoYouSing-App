@@ -10,6 +10,8 @@ import PlaylistCard from './Card/PlaylistCard';
 import SongInfo from './Card/SongInfo';
 import PlaylistInfo from './Card/PlaylistInfo';
 import ProfileHeader from './Card/ProfileHeader';
+import ScrollTopBtn from './ScrollTopBtn';
+import SelectCard from './SelectCard';
 
 export {
   BottomMenu,
@@ -24,4 +26,6 @@ export {
   SongInfo,
   PlaylistInfo,
   ProfileHeader,
+  ScrollTopBtn,
+  SelectCard,
 };

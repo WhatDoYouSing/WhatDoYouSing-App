@@ -1,8 +1,14 @@
 import { useRef, useState } from 'react';
-import { FlatList, View, TouchableOpacity } from 'react-native';
-import { IcTop } from 'assets/svgs';
+import { FlatList, View } from 'react-native';
 
-import { NoteCard, PlaylistCard, BottomMenu } from 'components/common';
+import {
+  NoteCard,
+  PlaylistCard,
+  BottomMenu,
+  ScrollTopBtn,
+  SelectCard,
+  Typo,
+} from 'components/common';
 import CtgryTopBar from 'components/Home/CtgryTopBar';
 
 import { mockData } from 'components/common/Card/noteMock';
@@ -13,8 +19,7 @@ type ContentItem = NoteCardType | PlaylistCardType;
 const HomeScreen = () => {
   const flatListRef = useRef<FlatList<ContentItem>>(null);
 
-  const categories = ['통합', '노트', '플리'];
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState('통합');
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
   const [isSelectionMode, setIsSelectionMode] = useState(false);
 
@@ -116,8 +121,10 @@ const HomeScreen = () => {
       <CtgryTopBar
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
-        selectedCount={selectedCards.length}
       />
+      {/* 선택 개수 */}
+      <SelectCard count={selectedCards.length} />
+
       {/* 카드 목록 */}
       <FlatList
         ref={flatListRef}
@@ -128,12 +135,7 @@ const HomeScreen = () => {
         ItemSeparatorComponent={() => <View className="border-b border-borderBg" />}
       />
       {/* 상단 스크롤 버튼 */}
-      <TouchableOpacity
-        onPress={scrollToTop}
-        className="absolute z-15 bottom-4 right-4 rounded-sm bg-primaryBg border border-black p-2 w-10 h-10"
-      >
-        <IcTop width={24} height={24} />
-      </TouchableOpacity>
+      <ScrollTopBtn onPress={scrollToTop} />
       {/* 하단 탭 */}
       {isSelectionMode && <BottomMenu menuItems={menuItems} />}
     </View>

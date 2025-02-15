@@ -62,7 +62,7 @@ const PlaylistInfo = ({ album_art, title, lyric, isBig = false }: PlaylistInfoPr
           variant={isBig ? 'text-16_M' : 'text-14_M'}
           numberOfLines={2}
           ellipsizeMode="tail"
-          className="w-auto grow-0 shrink-0 max-w-xs"
+          className="w-auto grow-0 max-w-xs"
         >
           {lyric}
         </Typo>

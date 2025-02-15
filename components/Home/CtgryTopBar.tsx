@@ -9,14 +9,9 @@ import { useTabMenu } from 'hooks/useTabMenu';
 interface CtgryTopBarProps {
   selectedCategory: string;
   setSelectedCategory: (category: string) => void;
-  selectedCount: number;
 }
 
-const CtgryTopBar = ({
-  selectedCategory,
-  setSelectedCategory,
-  selectedCount,
-}: CtgryTopBarProps) => {
+const CtgryTopBar = ({ selectedCategory, setSelectedCategory }: CtgryTopBarProps) => {
   const CATEGORIES = ['통합', '노트', '플리'];
   const MENU_ITEMS = ['전체', '팔로우 중'];
   const { menuItems, selectedItem, handleMenuSelect } = useTabMenu(MENU_ITEMS);
@@ -70,12 +65,6 @@ const CtgryTopBar = ({
         selectedItem={selectedItem}
         onMenuSelect={handleMenuSelect}
       />
-      {/* 선택 개수 */}
-      {selectedCount > 0 && (
-        <View className="flex justify-center items-center w-full p-4 bg-borderBg ">
-          <Typo className="text-brand text-14_B">노트 {selectedCount}개 선택됨</Typo>
-        </View>
-      )}
     </>
   );
 };
