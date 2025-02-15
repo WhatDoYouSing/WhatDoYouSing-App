@@ -3,7 +3,7 @@ import { Header, LNB } from 'components/common';
 import useTab from 'hooks/useTab';
 import UploadTag from 'components/upload/UploadTag';
 
-const UploadScreen = () => {
+const UploadPlaylistScreen = () => {
   const TAP_ITEMS = ['음원', '유튜브', '직접'];
   const { tabItems, selectedTab, handleTabSelect } = useTab(TAP_ITEMS);
 
@@ -17,4 +17,4 @@ const UploadScreen = () => {
   );
 };
 
-export default UploadScreen;
+export default UploadPlaylistScreen;

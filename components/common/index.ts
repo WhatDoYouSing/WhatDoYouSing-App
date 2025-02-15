@@ -1,3 +1,4 @@
+import BottomMenu from './BottomMenu';
 import FilledButton from './FilledButton';
 import Header from './Header';
 import LNB from './LNB';
@@ -11,6 +12,7 @@ import PlaylistInfo from './Card/PlaylistInfo';
 import ProfileHeader from './Card/ProfileHeader';
 
 export {
+  BottomMenu,
   FilledButton,
   Header,
   LNB,

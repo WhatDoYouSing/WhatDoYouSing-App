@@ -1,27 +1,24 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { CommonActions } from '@react-navigation/native';
 import { IcCommunity, IcMy, IcRecord, IcUpload } from 'assets/svgs';
+import colors from 'styles/colors';
 
-import HomeScreen from 'app/screens/HomeScreen';
-import RecordScreen from 'app/screens/RecordScreen';
-import UploadScreen from 'app/screens/UploadScreen';
-import MyScreen from 'app/screens/MyScreen';
-
-const colors = {
-  secondaryBg: '#F5EDF0',
-  black: '#33292C',
-};
+import HomeScreen from 'app/home/HomeScreen';
+import RecordScreen from 'app/record/RecordScreen';
+import UploadStackNavigator from './UploadStackNavigator';
+import MyScreen from 'app/my/MyScreen';
 
 const TAB_SCREENS = [
   { name: 'community', component: HomeScreen, icon: IcCommunity },
   { name: 'record', component: RecordScreen, icon: IcRecord },
-  { name: 'upload', component: UploadScreen, icon: IcUpload },
+  { name: 'upload', component: UploadStackNavigator, icon: IcUpload },
   { name: 'my', component: MyScreen, icon: IcMy, isLast: true },
 ];
 
-const BottomNavigator = () => {
-  const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
+const BottomNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="community"
@@ -44,13 +41,25 @@ const BottomNavigator = () => {
             tabBarIcon: ({ color }) => icon({ fill: color }),
             tabBarItemStyle: isLast ? styles.lastTabItem : styles.tabItem,
           }}
+          // 탭 클릭 시 스택 네비게이터 초기화
+          listeners={({ navigation, route }) => ({
+            tabPress: () => {
+              navigation.dispatch(
+                CommonActions.reset({
+                  index: 0,
+                  routes: [{ name: route.name }],
+                })
+              );
+              navigation.navigate(route.name);
+            },
+          })}
         />
       ))}
     </Tab.Navigator>
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: colors.secondaryBg,
     borderTopWidth: 1,
