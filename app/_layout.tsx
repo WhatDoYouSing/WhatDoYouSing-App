@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import '../global.css';
-import StackNavigator from 'navigation/StackNavigator';
+import BottomNavigator from 'navigation/BottomNavigator';
 
 // 로딩 중 화면 유지
 SplashScreen.preventAutoHideAsync();
@@ -30,7 +30,7 @@ const RootLayout = () => {
     return null;
   }
 
-  return <StackNavigator />;
+  return <BottomNavigator />;
 };
 
 export default RootLayout;
