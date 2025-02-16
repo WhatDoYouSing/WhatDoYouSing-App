@@ -3,10 +3,10 @@ import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { TextInputProps, TouchableOpacityProps } from 'react-native';
 import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
 
-import { Typo } from 'components/common';
-import Chip from './Chip';
+import { Tag, Typo } from 'components/common';
 import { IcX } from 'assets/svgs';
-import { EMOTION_LIST, getVisibilityIcon } from 'constants/upload';
+import { getVisibilityIcon } from 'constants/upload';
+import { EMOTIONS } from 'constants/emotions';
 
 interface ContainerProps {
   label: string;
@@ -126,19 +126,19 @@ const Location = ({ location, onClear, ...props }: LocationProps) => {
 
 // 감정 선택 필드
 interface EmotionProps {
-  selectedEmotion: string;
-  onSelectEmotion: (emotion: string) => void;
+  selectedEmotion: number;
+  onSelectEmotion: (emotion: number) => void;
 }
 
 const Emotion = ({ selectedEmotion, onSelectEmotion }: EmotionProps) => {
   return (
     <View className="flex-1 flex-wrap flex-row gap-2">
-      {EMOTION_LIST.map((emotion) => (
-        <Chip
-          key={emotion}
-          label={emotion}
-          selected={selectedEmotion === emotion}
-          onPress={onSelectEmotion}
+      {EMOTIONS.flat().map((emotion) => (
+        <Tag
+          key={emotion.id}
+          text={emotion.name}
+          isSelected={selectedEmotion === emotion.id}
+          onPress={() => onSelectEmotion(emotion.id)}
         />
       ))}
     </View>

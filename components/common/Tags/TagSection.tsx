@@ -4,26 +4,27 @@ import Tag from './Tag';
 
 interface TagSectionProps {
   title?: string;
-  tags: string[][];
-  selectedTags: string[];
-  onSelectTag: (tag: string) => void;
+  tags: { id: number; name: string }[][];
+  selectedTags: number[];
+  onSelectTag: (tag: number) => void;
 }
 
 const TagSection = ({ title, tags, selectedTags, onSelectTag }: TagSectionProps) => {
   return (
-    <View className="py-4">
-      <Typo variant="text-16_M">{title}</Typo>
+    <View className="flex flex-col gap-4 p-4">
+      <Typo variant="text-16_M" className="text-black">
+        {title}
+      </Typo>
       {tags.map((row, rowIndex) => (
-        <View key={rowIndex} className="flex flex-row mt-4">
-          {row.map((tag, idx) => (
-            <View key={idx} className="mr-2">
-              <Tag
-                text={tag}
-                size="small"
-                isSelected={selectedTags.includes(tag)}
-                onPress={() => onSelectTag(tag)}
-              />
-            </View>
+        <View key={rowIndex} className="flex-row flex-wrap gap-2">
+          {row.map((tag) => (
+            <Tag
+              key={tag.id}
+              text={tag.name}
+              size="small"
+              isSelected={selectedTags.includes(tag.id)}
+              onPress={() => onSelectTag(tag.id)}
+            />
           ))}
         </View>
       ))}

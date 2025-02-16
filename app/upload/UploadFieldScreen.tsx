@@ -19,7 +19,7 @@ const UploadFieldScreen = () => {
     memo: '',
   });
   const [location, setLocation] = useState({ placeName: '', address: '' });
-  const [emotion, setEmotion] = useState('');
+  const [emotion, setEmotion] = useState(0);
   const [visibility, setVisibility] = useState(VISIBILITY_OPTIONS[0].label);
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
