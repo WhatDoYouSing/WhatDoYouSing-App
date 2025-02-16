@@ -12,6 +12,12 @@ import PlaylistInfo from './Card/PlaylistInfo';
 import ProfileHeader from './Card/ProfileHeader';
 import ScrollTopBtn from './ScrollTopBtn';
 import SelectCard from './SelectCard';
+import BaseModal from './BaseModal';
+import Chip from './Tags/Chip';
+import EmotionDetailTags from './Tags/EmotionDetailTags';
+import EmotionModal from './Tags/EmotionModal';
+import FilterTags from './Tags/FilterTags';
+import TagSection from './Tags/TagSection';
 
 export {
   BottomMenu,
@@ -28,4 +34,10 @@ export {
   ProfileHeader,
   ScrollTopBtn,
   SelectCard,
+  BaseModal,
+  Chip,
+  EmotionDetailTags,
+  EmotionModal,
+  FilterTags,
+  TagSection,
 };
