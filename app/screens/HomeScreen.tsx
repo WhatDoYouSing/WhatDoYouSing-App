@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { Typo } from 'components/common';
+import { FilterTags, Typo } from 'components/common';
 
 const HomeScreen = () => {
   return (
@@ -7,6 +7,7 @@ const HomeScreen = () => {
       <Typo variant="text-18_SB" className="text-brand">
         Home
       </Typo>
+      <FilterTags />
     </View>
   );
 };

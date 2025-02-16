@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TagSection from './TagSection';
-import { EMOTIONS, TIMES, SEASONS, CONTEXTS, UPLOAD_EMOTIONS } from 'constants/Tags';
+import { EMOTIONS, TIMES, SEASONS, CONTEXTS, UPLOAD_EMOTIONS } from 'constants/tag';
 
 interface FilterTagsProps {
   isUpload?: boolean;

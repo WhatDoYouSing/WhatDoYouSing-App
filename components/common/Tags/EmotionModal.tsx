@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import Tag from './Tag';
-import { MODAL_EMOTIONS } from 'constants/Tags';
+import { MODAL_EMOTIONS } from 'constants/tag';
 
 const EmotionModal = () => {
   return (

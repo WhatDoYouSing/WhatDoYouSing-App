@@ -11,7 +11,7 @@ interface TagSectionProps {
 
 const TagSection = ({ title, tags, selectedTags, onSelectTag }: TagSectionProps) => {
   return (
-    <View className="p-4">
+    <View className="py-4">
       <Typo variant="text-16_M">{title}</Typo>
       {tags.map((row, rowIndex) => (
         <View key={rowIndex} className="flex flex-row mt-4">
