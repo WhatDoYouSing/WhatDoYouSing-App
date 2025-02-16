@@ -1,12 +1,29 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { FilledButton, Typo } from 'components/common';
-import { InputField } from './InputField';
-import useYouTubeInfo from 'hooks/useYouTubeInfo';
 
-const UploadLink = () => {
+import useYouTubeInfo from 'hooks/useYouTubeInfo';
+import { useUploadNoteContext } from 'contexts/UploadNoteContext';
+import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
+import { InputField } from 'components/upload';
+
+const UploadLinkScreen = () => {
+  const { goToField } = useUploadNoteNavigation();
   const { url, video, handleUrlChange, handleClear } = useYouTubeInfo();
+  const { field, setField } = useUploadNoteContext();
+
   const thumbnailUrl = video.id ? `https://img.youtube.com/vi/${video.id}/0.jpg` : '';
+
+  const onNext = () => {
+    setField({
+      ...field,
+      youtube_link: url,
+      album_art: thumbnailUrl,
+      song_title: video.title,
+      artist: video.author,
+    });
+    goToField('유튜브');
+  };
 
   return (
     <View className="flex-1 flex-col bg-primaryBg">
@@ -47,10 +64,10 @@ const UploadLink = () => {
       )}
 
       <View className="absolute bottom-4 w-full px-4">
-        <FilledButton text="다음" isActive={!!video.id} />
+        <FilledButton text="다음" isActive={!!video.id} onPress={onNext} />
       </View>
     </View>
   );
 };
 
-export default UploadLink;
+export default UploadLinkScreen;

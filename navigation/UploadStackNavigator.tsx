@@ -1,21 +1,28 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import UploadNoteScreen from 'app/upload/UploadNoteScreen';
+import {
+  useNavigation,
+  NavigationProp,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
 import UploadPlaylistScreen from 'app/upload/UploadPlaylistScreen';
+import UploadNoteNavigator, { UploadNoteStackParamList } from './UploadNoteNavigator';
+import { UploadNoteProvider } from 'contexts/UploadNoteContext';
 
 export type UploadStackParamList = {
-  note: undefined;
+  note: NavigatorScreenParams<UploadNoteStackParamList>;
   playlist: undefined;
 };
 
 const Stack = createNativeStackNavigator<UploadStackParamList>();
 
 const UploadStackNavigator = () => (
-  <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="note">
-    <Stack.Screen name="note" component={UploadNoteScreen} />
-    <Stack.Screen name="playlist" component={UploadPlaylistScreen} />
-  </Stack.Navigator>
+  <UploadNoteProvider>
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="note">
+      <Stack.Screen name="note" component={UploadNoteNavigator} />
+      <Stack.Screen name="playlist" component={UploadPlaylistScreen} />
+    </Stack.Navigator>
+  </UploadNoteProvider>
 );
 
 export default UploadStackNavigator;

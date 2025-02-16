@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
 import { FilledButton, Typo } from 'components/common';
-import MusicInfo from './MusicInfo';
 
-import { lyricData, resultData } from './uploadData';
+import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
+import { useUploadNoteContext } from 'contexts/UploadNoteContext';
+import { lyricData } from 'components/upload/uploadData';
+import { MusicInfo } from 'components/upload';
 
 const MAX_LENGTH = 210;
 
-const SelectLyric = () => {
+const SelectLyricScreen = () => {
+  const { goToField } = useUploadNoteNavigation();
+  const { field, setField, selectedMusic } = useUploadNoteContext();
+
   const [lyrics, setLyrics] = useState(lyricData); // 추후 오픈 API 연결을 통해 가사 데이터 받아올 예정
   const [selectedLines, setSelectedLines] = useState([]);
 
@@ -31,9 +36,15 @@ const SelectLyric = () => {
     }
   };
 
+  const onNext = () => {
+    const selectedLyrics = selectedLines.map((idx) => lyrics[idx]);
+    setField({ ...field, lyrics: selectedLyrics });
+    goToField('음원');
+  };
+
   return (
     <View className="flex-1 flex-col gap-[6]">
-      <MusicInfo music={resultData[0]} />
+      <MusicInfo music={selectedMusic} />
 
       {lyrics.length > 0 ? (
         <View className="flex-1 bg-primaryBg">
@@ -65,10 +76,10 @@ const SelectLyric = () => {
       )}
 
       <View className="absolute bottom-4 w-full px-4">
-        <FilledButton text=" 다음" />
+        <FilledButton text="다음" onPress={onNext} />
       </View>
     </View>
   );
 };
 
-export default SelectLyric;
+export default SelectLyricScreen;

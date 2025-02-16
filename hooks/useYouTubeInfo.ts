@@ -44,8 +44,6 @@ const useYouTubeInfo = () => {
     []
   );
 
-  console.log(video);
-
   const handleClear = () => {
     setUrl('');
     initVideo();

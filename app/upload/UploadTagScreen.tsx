@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
+import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { FilledButton, Typo } from 'components/common';
-import MusicInfo from './MusicInfo';
-import Chip from './Chip';
+import { Chip, MusicInfo } from 'components/upload';
 import { TAG_LIST } from 'constants/upload';
 
-import { resultData } from './uploadData';
-
-const UploadTag = () => {
+const UploadTagScreen = () => {
+  const { selectedMusic } = useUploadNoteContext();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const handleToggleTag = (tag: string) => {
@@ -18,8 +17,8 @@ const UploadTag = () => {
 
   return (
     <View className="flex-1 bg-primaryBg">
-      <ScrollView>
-        <MusicInfo music={resultData[0]} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <MusicInfo music={selectedMusic} />
 
         <Typo
           variant="text-12_R"
@@ -70,4 +69,4 @@ const UploadTag = () => {
   );
 };
 
-export default UploadTag;
+export default UploadTagScreen;

@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
 import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { TextInputProps, TouchableOpacityProps } from 'react-native';
+import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
+
 import { Typo } from 'components/common';
+import Chip from './Chip';
 import { IcX } from 'assets/svgs';
 import { EMOTION_LIST, getVisibilityIcon } from 'constants/upload';
-import Chip from './Chip';
 
 interface ContainerProps {
   label: string;
@@ -44,6 +46,8 @@ interface TextFieldProps extends TextInputProps {
 }
 
 const TextField = ({ isMusic, onClear, ...props }: TextFieldProps) => {
+  const { goToSelect } = useUploadNoteNavigation();
+
   return (
     <View className="flex-1 flex-row items-center gap-2">
       {isMusic ? (
@@ -54,6 +58,7 @@ const TextField = ({ isMusic, onClear, ...props }: TextFieldProps) => {
         ) : (
           <TouchableOpacity
             className={`flex-row justify-center items-center pt-3 pb-[11] w-full rounded-[2] bg-secondaryBg border border-black`}
+            onPress={() => goToSelect('직접')}
           >
             <Typo variant="text-14_M" className="text-black">
               가사 추가하기

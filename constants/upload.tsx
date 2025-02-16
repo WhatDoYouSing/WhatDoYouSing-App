@@ -1,5 +1,7 @@
 import { IcViewAll, IcViewFriends, IcViewOnlyMe } from 'assets/svgs';
 
+export const UPLOAD_TAP_ITEMS = ['음원', '유튜브', '직접'];
+
 export const UPLOAD_FIELDS = [
   {
     key: 'song',

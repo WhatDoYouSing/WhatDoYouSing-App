@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
+import { View, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
+import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { IcSearch } from 'assets/svgs';
 import { Typo } from 'components/common';
-import MusicInfo from './MusicInfo';
-import { resultData } from './uploadData';
+import { resultData } from 'components/upload/uploadData';
+import { MusicInfo } from 'components/upload';
+import { MusicInfoType } from 'types/upload';
 
-export interface MusicInfoType {
-  albumCover: string;
-  artist: string;
-  song: string;
-}
-
-const SearchMusic = () => {
+const SearchMusicScreen = () => {
+  const { goToSelect } = useUploadNoteNavigation();
+  const { field, setField } = useUploadNoteContext();
   const [searchResults, setSearchResults] = useState<MusicInfoType[] | null>(null);
 
-  const handleSearch = () => {
+  const handleSearchMusic = () => {
     // 임시 데이터 (추후 오픈 API 연결 예정)
     setSearchResults(resultData);
+  };
+
+  const handleSelectMusic = (music: MusicInfoType) => {
+    setField({
+      ...field,
+      album_art: music.albumCover,
+      artist: music.artist,
+      song_title: music.song,
+    });
+    goToSelect('음원');
   };
 
   return (
@@ -28,7 +37,7 @@ const SearchMusic = () => {
         />
         <TouchableOpacity
           className="flex items-center justify-center w-10 h-10"
-          onPress={handleSearch}
+          onPress={handleSearchMusic}
         >
           <IcSearch width={24} height={24} />
         </TouchableOpacity>
@@ -45,9 +54,17 @@ const SearchMusic = () => {
           </Typo>
           {searchResults.length > 0 ? (
             // 검색 결과 있음
-            <ScrollView contentContainerStyle={{ flex: 1, gap: 1 }}>
+            <ScrollView
+              contentContainerStyle={{ flex: 1, gap: 1 }}
+              showsVerticalScrollIndicator={false}
+            >
               {searchResults.map((music, index) => (
-                <MusicInfo key={index} music={music} isLargePadding={false} />
+                <MusicInfo
+                  key={index}
+                  music={music}
+                  isLargePadding={false}
+                  onPress={() => handleSelectMusic(music)}
+                />
               ))}
               <View className="flex-1 bg-primaryBg" />
             </ScrollView>
@@ -73,4 +90,4 @@ const SearchMusic = () => {
   );
 };
 
-export default SearchMusic;
+export default SearchMusicScreen;
