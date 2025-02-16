@@ -38,16 +38,7 @@ const BaseModal = ({
           >
             {title}
           </Typo>
-          <View
-            className="w-full"
-            style={{
-              height: 0.5,
-              backgroundColor: 'transparent',
-              borderWidth: 0.5,
-              borderColor: '#33292c',
-              borderStyle: 'dashed',
-            }}
-          />
+          <View className="w-full h-[0.5px] border-[0.5px] border-black border-dashed" />
           <Typo
             variant="text-14_R"
             className="flex w-full text-center justify-center py-4 border-b-[1px] border-black"
