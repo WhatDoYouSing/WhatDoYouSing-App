@@ -9,6 +9,9 @@ import {
   SelectCard,
   Typo,
 } from 'components/common';
+import { useScrollToTop } from 'hooks/useScrollToTop';
+import { getBottomMenu, MenuItem } from 'utils/getBottomMenu';
+
 import CtgryTopBar from 'components/Home/CtgryTopBar';
 
 import { mockData } from 'components/common/Card/noteMock';
@@ -17,7 +20,7 @@ import { NoteCardType, PlaylistCardType } from 'types/Card/CardType';
 type ContentItem = NoteCardType | PlaylistCardType;
 
 const HomeScreen = () => {
-  const flatListRef = useRef<FlatList<ContentItem>>(null);
+  const { flatListRef, scrollToTop } = useScrollToTop<ContentItem>();
 
   const [selectedCategory, setSelectedCategory] = useState('통합');
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
@@ -52,36 +55,24 @@ const HomeScreen = () => {
     setIsSelectionMode(false);
   };
 
-  //최상단으로 스크롤 올리는 함수
-  const scrollToTop = () => {
-    flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
-  };
-
   // 선택한 카드의 type을 확인
   const selectedCardTypes = filteredContents
     .filter((item) => selectedCards.includes(item.id))
     .map((item) => item.type);
 
-  // 하단 바 메뉴
-  const menuItems = selectedCardTypes.includes('pli')
-    ? [
-        { label: '취소', action: () => handleCancel() },
-        { label: '보관', action: () => console.log('보관 버튼 클릭') },
-      ]
-    : selectedCardTypes.includes('note')
-      ? selectedCardTypes.length === 1
-        ? [
-            { label: '취소', action: () => handleCancel() },
-            { label: '노트로', action: () => console.log('노트로 버튼 클릭') },
-            { label: '플리로', action: () => console.log('플리로 버튼 클릭') },
-            { label: '보관', action: () => console.log('보관 버튼 클릭') },
-          ]
-        : [
-            { label: '취소', action: () => handleCancel() },
-            { label: '플리로', action: () => console.log('플리로 버튼 클릭') },
-            { label: '보관', action: () => console.log('보관 버튼 클릭') },
-          ]
-      : [];
+  // 임의의 cookie에 있는 사용자 id (로그인한 my ID)
+  const cookieId = 123;
+
+  // 선택된 카드들의 전체 정보
+  const selectedItems = filteredContents.filter((item) =>
+    selectedCards.includes(item.id)
+  );
+
+  // 모든 선택된 카드가 현재 사용자(cookieId)의 것인지 확인
+  const isOwnedByUser =
+    selectedItems.length > 0 && selectedItems.every((item) => item.user.id === cookieId);
+
+  const menuItems = getBottomMenu(selectedCardTypes, isOwnedByUser, handleCancel);
 
   // FlatList의 각 아이템 렌더링
   const renderCard = ({ item }: { item: ContentItem }) => {

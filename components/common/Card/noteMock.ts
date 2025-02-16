@@ -8,7 +8,7 @@ import {
 
 // ✅ 사용자 데이터 (다양한 사용자를 추가)
 const baseUser1: UserType = {
-  id: 101,
+  id: 123,
   username: 'user123',
   nickname: '담칠',
   profile: 2,
@@ -78,7 +78,7 @@ const noteCards: NoteCardType[] = [
   {
     type: 'note',
     id: 3,
-    user: baseUser3,
+    user: baseUser1,
     ...baseContent,
     subtitle: '지켜줄게 - 백예린',
     title: '지켜줄게',
