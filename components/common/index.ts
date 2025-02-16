@@ -16,6 +16,7 @@ import EmotionDetailTags from './Tags/EmotionDetailTags';
 import EmotionModal from './Tags/EmotionModal';
 import FilterTags from './Tags/FilterTags';
 import TagSection from './Tags/TagSection';
+import BottomModal from './BottomModal';
 
 export {
   BottomMenu,
@@ -36,4 +37,5 @@ export {
   EmotionModal,
   FilterTags,
   TagSection,
+  BottomModal,
 };
