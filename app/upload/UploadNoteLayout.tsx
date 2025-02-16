@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Header, LNB } from 'components/common';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { UploadNoteStackParamList } from 'navigation/UploadNoteNavigator';
-import { UPLOAD_TAP_ITEMS } from 'constants/upload';
 import { useUploadNoteContext } from 'contexts/UploadNoteContext';
+import { Header, LNB } from 'components/common';
+import { UPLOAD_TAP_ITEMS } from 'constants/upload';
 
 const UploadNoteLayout = (Component: React.ComponentType<any>) => {
   return (props: any) => {

@@ -4,9 +4,9 @@ import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
 import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { IcSearch } from 'assets/svgs';
 import { Typo } from 'components/common';
-import { resultData } from 'components/upload/uploadData';
 import { MusicInfo } from 'components/upload';
 import { MusicInfoType } from 'types/upload';
+import { resultData } from 'components/upload/uploadData';
 
 const SearchMusicScreen = () => {
   const { goToSelect } = useUploadNoteNavigation();

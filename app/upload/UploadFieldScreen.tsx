@@ -2,11 +2,9 @@ import React, { useMemo, useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
-
 import { FilledButton } from 'components/common';
-
-import { UPLOAD_FIELDS, VISIBILITY_OPTIONS } from 'constants/upload';
 import { InputField, MusicInfo } from 'components/upload';
+import { UPLOAD_FIELDS, VISIBILITY_OPTIONS } from 'constants/upload';
 
 const UploadFieldScreen = () => {
   const { goToTag } = useUploadNoteNavigation();

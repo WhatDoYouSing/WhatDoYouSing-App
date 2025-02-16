@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
-import { FilledButton, Typo } from 'components/common';
-
 import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
 import { useUploadNoteContext } from 'contexts/UploadNoteContext';
+import { FilledButton, Typo } from 'components/common';
 import { lyricData } from 'components/upload/uploadData';
 import { MusicInfo } from 'components/upload';
 

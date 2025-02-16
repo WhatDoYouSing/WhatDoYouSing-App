@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { FilledButton, Typo } from 'components/common';
-
-import useYouTubeInfo from 'hooks/useYouTubeInfo';
 import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
+import { FilledButton, Typo } from 'components/common';
 import { InputField } from 'components/upload';
+import useYouTubeInfo from 'hooks/useYouTubeInfo';
 
 const UploadLinkScreen = () => {
   const { goToField } = useUploadNoteNavigation();
