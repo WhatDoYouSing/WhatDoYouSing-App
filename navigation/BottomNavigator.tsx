@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
-  CommonActions,
   NavigationProp,
   useNavigation,
   NavigatorScreenParams,
+  CommonActions,
 } from '@react-navigation/native';
 import { IcCommunity, IcMy, IcRecord, IcUpload } from 'assets/svgs';
 import colors from 'styles/colors';
@@ -39,7 +39,27 @@ const BottomNavigator = () => {
   // 업로드 옵션 모달에서 옵션을 선택했을 때 해당 화면으로 이동
   const handleUploadOptionSelect = (optionScreen: keyof UploadStackParamList) => {
     setUploadModalVisible(false);
-    navigation.navigate('upload', { screen: optionScreen });
+
+    const uploadParams =
+      optionScreen === 'note'
+        ? {
+            screen: 'note',
+            params: { screen: optionScreen, params: { selectedTab: '음원' } },
+          }
+        : { screen: optionScreen };
+
+    // 업로드 내부 스택 네비게이터 모두 초기화
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          {
+            name: 'upload',
+            params: uploadParams,
+          },
+        ],
+      })
+    );
   };
 
   return (
@@ -61,24 +81,16 @@ const BottomNavigator = () => {
             key={name}
             name={name}
             component={component}
-            options={{
+            options={() => ({
+              unmountOnBlur: true, // 해당 탭이 포커스를 잃을 때 컴포넌트를 자동으로 언마운트
               tabBarIcon: ({ color }) => icon({ fill: color }),
-              tabBarItemStyle: isLast ? styles.lastTabItem : styles.tabItem,
-            }}
-            listeners={({ navigation, route }) => ({
+              tabBarItemStyle: { borderRightWidth: 1, height: 80 },
+            })}
+            listeners={({ route }) => ({
               tabPress: (e: any) => {
                 if (route.name === 'upload') {
                   e.preventDefault();
                   setUploadModalVisible(true);
-                } else {
-                  // 해당 탭 스택 네비게이터 초기화
-                  navigation.dispatch(
-                    CommonActions.reset({
-                      index: 0,
-                      routes: [{ name: route.name }],
-                    })
-                  );
-                  navigation.navigate(route.name);
                 }
               },
             })}
