@@ -21,6 +21,7 @@ module.exports = function (api) {
             types: './.expo/types',
           },
         },
+        'react-native-reanimated/plugin',
       ],
     ],
   };
