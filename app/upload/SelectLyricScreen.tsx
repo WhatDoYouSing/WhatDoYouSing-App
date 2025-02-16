@@ -19,7 +19,7 @@ const SelectLyricScreen = () => {
   const handleLinePress = (index: number) => {
     const lineText = lyrics[index];
 
-    // 현재 선택된 가사의 총 글자 수
+    // 현재 선택된 가사의 총 글자 수 계산
     const currentLength = selectedLines.reduce((acc, curIdx) => {
       return acc + lyrics[curIdx].length;
     }, 0);
@@ -48,7 +48,7 @@ const SelectLyricScreen = () => {
 
       {lyrics.length > 0 ? (
         <View className="flex-1 bg-primaryBg">
-          <ScrollView className="flex-1 p-4">
+          <ScrollView className="flex-1 p-4" showsVerticalScrollIndicator={false}>
             {lyrics.map((line, index) => {
               const isSelected = selectedLines.includes(index);
               return (

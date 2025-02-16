@@ -18,6 +18,7 @@ const SearchMusicScreen = () => {
     setSearchResults(resultData);
   };
 
+  // 음원 선택 시 정보 저장 후 이동
   const handleSelectMusic = (music: MusicInfoType) => {
     setField({
       ...field,

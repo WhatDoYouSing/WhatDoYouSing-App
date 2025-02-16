@@ -12,6 +12,7 @@ const UploadFieldScreen = () => {
   const { goToTag } = useUploadNoteNavigation();
   const { selectedTab, field, setField, selectedMusic } = useUploadNoteContext();
 
+  // 입력 값 관리
   const [inputs, setInputs] = useState({
     song: field.song_title,
     artist: field.artist,
@@ -22,18 +23,37 @@ const UploadFieldScreen = () => {
   const [emotion, setEmotion] = useState(0);
   const [visibility, setVisibility] = useState(VISIBILITY_OPTIONS[0].label);
 
+  // 입력 필드 포커싱
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
+  // 입력 필드 값 상태 업데이트
   const handleChange = (key: string, value: string) => {
     setInputs((prev) => ({ ...prev, [key]: value }));
   };
 
+  // '직접' 탭이 아닐 경우 곡 & 가수 입력을 받지 않음
   const fields = useMemo(() => {
-    return selectedTab !== '직접'
-      ? UPLOAD_FIELDS.filter((field) => field.key !== 'song' && field.key !== 'artist')
-      : UPLOAD_FIELDS;
+    return selectedTab === '직접'
+      ? UPLOAD_FIELDS
+      : UPLOAD_FIELDS.filter((field) => field.key !== 'song' && field.key !== 'artist');
   }, [selectedTab]);
 
+  // 버튼 활성화 조건 계산
+  const isButtonActive = useMemo(() => {
+    const memoValid = inputs.memo.trim().length > 0;
+    const emotionValid = emotion !== 0;
+    const visibilityValid = visibility.trim().length > 0;
+
+    if (selectedTab === '직접') {
+      const songValid = inputs.song.trim().length > 0;
+      const artistValid = inputs.artist.trim().length > 0;
+      return songValid && artistValid && memoValid && emotionValid && visibilityValid;
+    }
+
+    return memoValid && emotionValid && visibilityValid;
+  }, [inputs, emotion, visibility, selectedTab]);
+
+  // 모든 입력 값 저장 후 이동
   const onNext = () => {
     const lyricArr = inputs.lyric.trim() ? inputs.lyric.split('\n') : [];
     setField({
@@ -52,7 +72,7 @@ const UploadFieldScreen = () => {
 
   return (
     <View className="flex-1 flex-col gap-[6]">
-      {selectedTab !== '직접' && <MusicInfo music={selectedMusic} />}
+      {selectedTab === '직접' || <MusicInfo music={selectedMusic} />}
 
       <View className="flex-1 bg-primaryBg">
         <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
@@ -96,7 +116,7 @@ const UploadFieldScreen = () => {
       </View>
 
       <View className="absolute bottom-4 w-full px-4">
-        <FilledButton text="다음" onPress={onNext} />
+        <FilledButton text="다음" isActive={isButtonActive} onPress={onNext} />
       </View>
     </View>
   );

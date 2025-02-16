@@ -15,6 +15,7 @@ const UploadTagScreen = () => {
   const { selectedMusic } = useUploadNoteContext();
   const [selectedFilter, setSelectedFilter] = useState(initialFilter);
 
+  // 태그 선택 & 해제 함수
   const handleSelectedFilter = (category: keyof SelectedFilterType, tag: number) => {
     setSelectedFilter((prev) => {
       const newSet = new Set(prev[category]);
@@ -22,6 +23,7 @@ const UploadTagScreen = () => {
       return { ...prev, [category]: newSet };
     });
   };
+
   return (
     <View className="flex-1 bg-primaryBg">
       <ScrollView showsVerticalScrollIndicator={false}>
