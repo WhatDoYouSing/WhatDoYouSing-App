@@ -38,7 +38,7 @@ const BottomNavigator = () => {
           name={name}
           component={component}
           options={{
-            tabBarIcon: ({ color }) => icon({ fill: color }),
+            tabBarIcon: ({ color }) => icon({ fill: color, width: 24, height: 24 }),
             tabBarItemStyle: isLast ? styles.lastTabItem : styles.tabItem,
           }}
           // 탭 클릭 시 스택 네비게이터 초기화
@@ -78,6 +78,8 @@ export const styles = StyleSheet.create({
   },
   tabIcon: {
     marginTop: 3,
+    width: 40,
+    height: 40,
   },
 });
 
