@@ -6,14 +6,14 @@ const SvgIcArrowRight = (props: SvgProps) => (
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    viewBox="0 0 24 24"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
     <G clipPath="url(#ic_arrow_right_svg__a)">
       <Path
         fill="#33292C"
-        d="M6.776 21.11c.49.49 1.28.49 1.77 0l8.41-8.41a.996.996 0 0 0 0-1.41l-8.41-8.41a1.25 1.25 0 0 0-1.77 0 1.25 1.25 0 0 0 0 1.77l7.34 7.34-7.35 7.35c-.48.49-.48 1.28.01 1.77"
+        d="m17.03 12.53-7.5 7.5a.751.751 0 0 1-1.061-1.06l6.97-6.97-6.97-6.97A.75.75 0 1 1 9.53 3.97l7.5 7.5a.75.75 0 0 1 0 1.06"
       />
     </G>
     <Defs>

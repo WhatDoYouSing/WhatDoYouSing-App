@@ -6,14 +6,14 @@ const SvgIcSelectOff = (props: SvgProps) => (
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    viewBox="0 0 24 24"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
     <G clipPath="url(#ic_select_off_svg__a)">
       <Path
         fill="#33292C"
-        d="M18 19H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1m1-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2"
+        d="M21 4.5v15a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5v-15A1.5 1.5 0 0 1 4.5 3h15A1.5 1.5 0 0 1 21 4.5m-1.5 15v-15h-15v15z"
       />
     </G>
     <Defs>
