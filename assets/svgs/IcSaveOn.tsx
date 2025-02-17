@@ -6,12 +6,15 @@ const SvgIcSaveOn = (props: SvgProps) => (
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    viewBox="0 0 24 24"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
     <G clipPath="url(#ic_save_on_svg__a)">
-      <Path fill="#FF005C" d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2" />
+      <Path
+        fill="#FF005C"
+        d="M17.25 3H6.75a1.5 1.5 0 0 0-1.5 1.5V21a.75.75 0 0 0 1.148.636L12 18.134l5.603 3.502A.75.75 0 0 0 18.75 21V4.5a1.5 1.5 0 0 0-1.5-1.5m0 16.647-4.853-3.033a.75.75 0 0 0-.795 0L6.75 19.647V4.5h10.5z"
+      />
     </G>
     <Defs>
       <ClipPath id="ic_save_on_svg__a">

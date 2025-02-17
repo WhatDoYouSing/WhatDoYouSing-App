@@ -127,6 +127,8 @@ export const styles = StyleSheet.create({
   },
   tabIcon: {
     marginTop: 3,
+    width: 40,
+    height: 40,
   },
 });
 

@@ -24,8 +24,8 @@ export interface BaseContent {
 export interface NoteCardType extends BaseContent {
   location_name?: string;
   location_address?: string;
-  lyric: string;
-  singer: string;
+  lyric?: string;
+  singer?: string;
 
   isBig?: boolean;
   isLocation?: boolean;
@@ -35,8 +35,8 @@ export interface NoteCardType extends BaseContent {
 export interface QuoteCardType extends BaseContent {
   location_name?: string;
   location_address?: string;
-  lyric: string;
-  singer: string;
+  lyric?: string;
+  singer?: string;
 
   isMy?: boolean;
   isClicked?: boolean;
@@ -44,18 +44,20 @@ export interface QuoteCardType extends BaseContent {
 
 // PlaylistCard 타입
 export interface PlaylistCardType extends Omit<BaseContent, 'album_art'> {
-  album_art: string[];
-  lyric: string;
+  album_art?: string[];
+  lyric?: string;
 
   isBig?: boolean;
 }
 
-// ✅ 프로필 헤더
-export interface ProfileHeaderProps {
+export interface ProfileHeaderProps extends SelectableProps {
   profile: number;
   nickname: string;
+  visibility: string;
   created_at: string;
   is_updated?: boolean;
+
+  id?: number;
 }
 
 export interface SongInfoProps {
@@ -88,4 +90,11 @@ export interface DashedBorderProps {
   borderRadius?: number;
   dashArray?: string; // 예: "10,5" → dash 길이 10, 간격 5
   className?: string;
+}
+
+export interface SelectableProps {
+  isSelected?: boolean;
+  isSelectionMode?: boolean;
+  toggleSelectCard?: (id: number) => void; // 카드 선택/해제 함수
+  handleLongPress?: (id: number) => void; // 길게 눌렀을 때 선택 모드 활성화 함수
 }

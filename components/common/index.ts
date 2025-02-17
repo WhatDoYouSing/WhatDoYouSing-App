@@ -10,6 +10,8 @@ import PlaylistCard from './Card/PlaylistCard';
 import SongInfo from './Card/SongInfo';
 import PlaylistInfo from './Card/PlaylistInfo';
 import ProfileHeader from './Card/ProfileHeader';
+import ScrollTopBtn from './ScrollTopBtn';
+import SelectCard from './SelectCard';
 import BaseModal from './BaseModal';
 import Chip from './Tags/Chip';
 import EmotionDetailTags from './Tags/EmotionDetailTags';
@@ -31,6 +33,8 @@ export {
   SongInfo,
   PlaylistInfo,
   ProfileHeader,
+  ScrollTopBtn,
+  SelectCard,
   BaseModal,
   Chip,
   EmotionDetailTags,

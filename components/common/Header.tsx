@@ -31,7 +31,7 @@ const Header = ({
             className="absolute left-4 flex items-center justify-center w-10 h-10"
             onPress={() => router.back()}
           >
-            <IcArrowLeft />
+            <IcArrowLeft width={24} height={24} />
           </TouchableOpacity>
         )}
 
@@ -40,7 +40,11 @@ const Header = ({
             className="absolute left-4 flex items-center justify-center w-10 h-10"
             onPress={onBtnClick}
           >
-            {isCalendarActive ? <IcCalendarOn /> : <IcCalendarOff />}
+            {isCalendarActive ? (
+              <IcCalendarOn width={24} height={24} />
+            ) : (
+              <IcCalendarOff width={24} height={24} />
+            )}
           </TouchableOpacity>
         )}
 
@@ -50,7 +54,7 @@ const Header = ({
 
         {showSearchIcon && (
           <TouchableOpacity className="absolute right-4 flex items-center justify-center w-10 h-10">
-            <IcSearch />
+            <IcSearch width={24} height={24} />
           </TouchableOpacity>
         )}
 
