@@ -17,6 +17,7 @@ import Chip from './Tags/Chip';
 import EmotionDetailTags from './Tags/EmotionDetailTags';
 import EmotionModal from './Tags/EmotionModal';
 import FilterTags from './Tags/FilterTags';
+import Tag from './Tags/Tag';
 import TagSection from './Tags/TagSection';
 import BottomModal from './BottomModal';
 
@@ -40,6 +41,7 @@ export {
   EmotionDetailTags,
   EmotionModal,
   FilterTags,
+  Tag,
   TagSection,
   BottomModal,
 };
