@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import '../global.css';
 import BottomNavigator from 'navigation/BottomNavigator';
+import { ToastProvider } from 'contexts/ToastContext';
 
 // 로딩 중 화면 유지
 SplashScreen.preventAutoHideAsync();
@@ -30,7 +31,11 @@ const RootLayout = () => {
     return null;
   }
 
-  return <BottomNavigator />;
+  return (
+    <ToastProvider>
+      <BottomNavigator />
+    </ToastProvider>
+  );
 };
 
 export default RootLayout;
