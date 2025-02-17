@@ -51,7 +51,7 @@ const SearchMusicScreen = () => {
             variant="text-14_R"
             className="px-4 py-3 bg-primaryBg text-black leading-normal"
           >
-            {`${searchResults.length}개의 검색결과`}
+            {searchResults.length}개의 검색결과
           </Typo>
           {searchResults.length > 0 ? (
             // 검색 결과 있음
@@ -73,7 +73,8 @@ const SearchMusicScreen = () => {
             // 검색 결과 없음
             <View className="flex-1 justify-center items-center bg-primaryBg">
               <Typo variant="text-14_R" className="text-grey text-center leading-[1.5]">
-                검색결과가 없습니다. <br />
+                검색결과가 없습니다.
+                <br />
                 다른 검색어로 검색해보시는 건 어떨까요?
               </Typo>
             </View>
@@ -83,7 +84,9 @@ const SearchMusicScreen = () => {
         // 검색 전
         <View className="flex-1 justify-center items-center h-full">
           <Typo variant="text-14_R" className="text-grey text-center leading-[1.5]">
-            {`등록하고 싶은 음원을\n간편하게 검색해 보세요!`}
+            등록하고 싶은 음원을
+            <br />
+            간편하게 검색해 보세요
           </Typo>
         </View>
       )}

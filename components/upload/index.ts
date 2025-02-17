@@ -1,4 +1,4 @@
-import { InputField } from './InputField';
+import InputField from './InputField';
 import MusicInfo from './MusicInfo';
 import UploadOptionModal from './UploadOptionModal';
 

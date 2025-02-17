@@ -78,7 +78,7 @@ const UploadFieldScreen = () => {
             const isLast = index === fields.length - 1;
             return (
               <View key={field.key}>
-                <InputField.Container
+                <InputField
                   label={field.label}
                   isRequired={field.isRequired}
                   isSmall={field.isSmall}
@@ -104,7 +104,7 @@ const UploadFieldScreen = () => {
                       onBlur={() => setFocusedField(null)}
                     />
                   )}
-                </InputField.Container>
+                </InputField>
                 {!isLast && <View className="h-[1] bg-secondaryBg" />}
               </View>
             );

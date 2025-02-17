@@ -1,14 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { UploadNoteStackParamList } from 'navigation/UploadNoteNavigator';
+import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
 import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { Header, LNB } from 'components/common';
 import { UPLOAD_TAP_ITEMS } from 'constants/upload';
 
 const UploadNoteLayout = (Component: React.ComponentType<any>) => {
   return (props: any) => {
-    const navigation = useNavigation<NavigationProp<UploadNoteStackParamList>>();
+    const { goToSearch, goToLink, goToField } = useUploadNoteNavigation();
     const { selectedTab, setSelectedTab, initField } = useUploadNoteContext();
 
     const onTabSelect = (tab: string) => {
@@ -16,11 +15,11 @@ const UploadNoteLayout = (Component: React.ComponentType<any>) => {
       setSelectedTab(tab);
 
       if (tab === UPLOAD_TAP_ITEMS[0]) {
-        navigation.navigate('search', { selectedTab: tab });
+        goToSearch(tab);
       } else if (tab === UPLOAD_TAP_ITEMS[1]) {
-        navigation.navigate('link', { selectedTab: tab });
+        goToLink(tab);
       } else if (tab === UPLOAD_TAP_ITEMS[2]) {
-        navigation.navigate('field', { selectedTab: tab });
+        goToField(tab);
       }
     };
 

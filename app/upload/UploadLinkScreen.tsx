@@ -26,14 +26,14 @@ const UploadLinkScreen = () => {
 
   return (
     <View className="flex-1 flex-col bg-primaryBg">
-      <InputField.Container label="링크" isRequired>
+      <InputField label="링크" isRequired>
         <InputField.TextField
           placeholder="유튜브 링크를 입력해주세요!"
           value={url}
           onChangeText={handleUrlChange}
           onClear={handleClear}
         />
-      </InputField.Container>
+      </InputField>
 
       <View className="w-full h-[1] bg-secondaryBg" />
 

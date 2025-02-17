@@ -8,7 +8,7 @@ import { IcX } from 'assets/svgs';
 import { getVisibilityIcon } from 'constants/upload';
 import { EMOTIONS } from 'constants/emotions';
 
-interface ContainerProps {
+interface InputFieldProps {
   label: string;
   isSmall?: boolean;
   isRequired?: boolean;
@@ -17,13 +17,13 @@ interface ContainerProps {
 }
 
 // 공통 레이아웃
-const Container = ({
+const InputField = ({
   label,
   isSmall = false,
   isRequired = false,
   isInputFocused = false,
   children,
-}: ContainerProps) => {
+}: InputFieldProps) => {
   const py = isSmall ? 'py-2' : 'py-4';
   const pb = isInputFocused ? (isSmall ? 'pb-[7]' : 'pb-[15]') : '';
   const border = isInputFocused ? 'border-b border-brand' : '';
@@ -165,10 +165,9 @@ const Visibility = ({ visibility, ...props }: VisibilityProps) => {
   );
 };
 
-export const InputField = {
-  Container,
-  TextField,
-  Location,
-  Emotion,
-  Visibility,
-};
+InputField.TextField = TextField;
+InputField.Location = Location;
+InputField.Emotion = Emotion;
+InputField.Visibility = Visibility;
+
+export default InputField;
