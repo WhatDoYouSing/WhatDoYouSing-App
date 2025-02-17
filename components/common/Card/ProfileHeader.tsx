@@ -21,7 +21,7 @@ const ProfileHeader = ({ item }: ProfileHeaderItemProps) => {
     <View className="flex flex-row justify-between items-center w-full px-4 py-2 gap-2">
       <View className="flex flex-row items-center gap-2">
         <Image
-          className="rounded-full m-2"
+          className="rounded-full m-1"
           source={{ uri: profileUri }}
           style={{ width: 32, height: 32 }}
         />
@@ -39,8 +39,9 @@ const ProfileHeader = ({ item }: ProfileHeaderItemProps) => {
           </View>
         </View>
       </View>
+
       {/* 선택 모드일 때의 설정 */}
-      <TouchableOpacity onPress={() => item.toggleSelectCard?.(item.id)}>
+      <TouchableOpacity onPress={() => item.toggleSelectCard?.(item.id)} className="p-2">
         {item.isSelectionMode ? (
           item.isSelected ? (
             <IcSelectOn width={24} height={24} />

@@ -18,9 +18,13 @@ const QuoteCard = ({ item, isClicked = false }: QuoteCardProps) => {
     >
       {/* 장소 정보 - 본인 노트 인용 시에만 표시 */}
       {item.isMy && (
-        <View className="flex flex-col px-4 py-2">
-          <Typo variant="text-12_L">{item.location_name}</Typo>
-          <Typo variant="text-12_L">{item.location_address}</Typo>
+        <View className="flex flex-col gap-[1] px-4 py-2">
+          <Typo variant="text-12_L" className="leading-[1.3]">
+            {item.location_name}
+          </Typo>
+          <Typo variant="text-12_L" className="leading-[1.3]">
+            {item.location_address}
+          </Typo>
         </View>
       )}
 
