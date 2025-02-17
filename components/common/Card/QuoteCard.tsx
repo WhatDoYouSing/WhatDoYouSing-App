@@ -1,14 +1,21 @@
 import { View } from 'react-native';
-import { Typo, DashedBorder, SongInfo } from 'components/common';
+import { Typo, DashedBorder, SongInfo, DashedLine } from 'components/common';
 import { QuoteCardType } from 'types/Card/CardType';
+import { cn } from 'utils/cn';
 
 interface QuoteCardProps {
   item: QuoteCardType;
+  isClicked?: boolean;
 }
 
-const QuoteCard = ({ item }: QuoteCardProps) => {
+const QuoteCard = ({ item, isClicked = false }: QuoteCardProps) => {
   const cardContent = (
-    <View className="w-full">
+    <View
+      className={cn(
+        'bg-primaryBg rounded-sm',
+        item.isMy ? 'pt-1 pb-2 gap-[2]' : 'py-2 gap-2'
+      )}
+    >
       {/* 장소 정보 - 본인 노트 인용 시에만 표시 */}
       {item.isMy && (
         <View className="flex flex-col px-4 py-2">
@@ -23,26 +30,35 @@ const QuoteCard = ({ item }: QuoteCardProps) => {
         title={item.title}
         singer={item.singer}
         lyric={item.lyric}
+        emotion={item.emotion}
       />
 
       {/* 사용자 메모 - 남의 노트 인용 시에만 표시 */}
       {!item.isMy && (
-        <View className="mx-4 py-2 border-t-[0.5px] border-dashed">
-          <Typo variant="text-12_R" numberOfLines={1} ellipsizeMode="tail">
-            {item.memo}
-          </Typo>
-          <Typo variant="text-12_L" className="text-grey">
-            {`from. ${item.user.nickname}`}
-          </Typo>
+        <View className="flex-col gap-3 px-4 pb-2">
+          <DashedLine strokeWidth={0.5} />
+          <View className="gap-1">
+            <Typo variant="text-12_R" numberOfLines={1} ellipsizeMode="tail">
+              {item.memo}
+            </Typo>
+            <View className="flex-row gap-1">
+              <Typo variant="text-12_L" className="text-grey">
+                from.
+              </Typo>
+              <Typo variant="text-12_L" className="text-grey leading-[1.5]">
+                {item.user.nickname}
+              </Typo>
+            </View>
+          </View>
         </View>
       )}
     </View>
   );
 
-  return item.isClicked ? (
-    <DashedBorder className="w-full max-w-md py-2 gap-2">{cardContent}</DashedBorder>
+  return isClicked ? (
+    <DashedBorder className="w-full max-w-md">{cardContent}</DashedBorder>
   ) : (
-    <View className="w-full max-w-md py-2 gap-2">{cardContent}</View>
+    <View className="w-full max-w-md">{cardContent}</View>
   );
 };
 

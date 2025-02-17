@@ -42,6 +42,7 @@ const NoteCard = ({ item }: NoteCardProps) => {
         title={item.title}
         singer={item.singer}
         lyric={item.lyric}
+        emotion={item.emotion}
         isBig={item.isBig}
       />
 

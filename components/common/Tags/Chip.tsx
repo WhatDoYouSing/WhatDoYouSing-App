@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Typo from '../Typo';
+import DashedBorder from '../Card/DashedBorder';
 
 interface ChipProps {
   size?: 'small' | 'big';
@@ -8,11 +9,15 @@ interface ChipProps {
 
 const Chip = ({ size = 'small', text }: ChipProps) => {
   return (
-    <View className="flex flex-row">
-      <View className="inline-flex px-1 pt-[2px] pb-[1px] border-dashed border-[0.5px] border-black rounded-sm">
+    <DashedBorder
+      className="inline-flex w-fit h-fit rounded-sm"
+      borderWidth={0.5}
+      dashArray="4,2"
+    >
+      <View className="px-1 pt-[2px] pb-[1px]">
         <Typo variant={size === 'small' ? 'text-12_L' : 'text-14_L'}>{text}</Typo>
       </View>
-    </View>
+    </DashedBorder>
   );
 };
 
