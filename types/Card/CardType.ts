@@ -39,7 +39,6 @@ export interface QuoteCardType extends BaseContent {
   singer?: string;
 
   isMy?: boolean;
-  isClicked?: boolean;
 }
 
 // PlaylistCard 타입
@@ -66,6 +65,7 @@ export interface SongInfoProps {
   singer: string;
   lyric: string;
   isBig?: boolean;
+  emotion?: string;
 }
 
 export interface PlaylistInfoProps {
