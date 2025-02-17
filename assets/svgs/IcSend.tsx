@@ -1,26 +1,25 @@
 import * as React from 'react';
-import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
-const SvgIcSend = (props: SvgProps) => (
-  <Svg
+import type { SVGProps } from 'react';
+const SvgIcSend = (props: SVGProps<SVGSVGElement>) => (
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
-    <G clipPath="url(#ic_send_svg__a)">
-      <Path
+    <g clipPath="url(#ic_send_svg__a)">
+      <path
         fill="#33292C"
-        d="m3.4 20.4 17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91"
+        d="m21.738 10.688-15.75-8.99A1.5 1.5 0 0 0 3.837 3.5L6.708 12l-2.871 8.5a1.5 1.5 0 0 0 2.157 1.803l15.742-9.005a1.5 1.5 0 0 0 .005-2.614zM5.25 21v-.011L8.04 12.75H13.5a.75.75 0 0 0 0-1.5H8.04L5.256 3.015 5.25 3 21 11.984z"
       />
-    </G>
-    <Defs>
-      <ClipPath id="ic_send_svg__a">
-        <Path fill="#fff" d="M0 0h24v24H0z" />
-      </ClipPath>
-    </Defs>
-  </Svg>
+    </g>
+    <defs>
+      <clipPath id="ic_send_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
 );
 export default SvgIcSend;

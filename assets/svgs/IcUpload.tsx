@@ -1,19 +1,25 @@
 import * as React from 'react';
-import Svg, { Path } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
-const SvgIcUpload = (props: SvgProps) => (
-  <Svg
+import type { SVGProps } from 'react';
+const SvgIcUpload = (props: SVGProps<SVGSVGElement>) => (
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
-    <Path
-      fill={props.fill || '#33292C'}
-      d="M12.475 16.825 20.85 8.45l-1.3-1.3-8.375 8.375zM3 15.275Q3 16 3.5 16.4t1.65.525a.9.9 0 0 1 .637.363Q6.026 17.6 6 18a1.04 1.04 0 0 1-.3.7.77.77 0 0 1-.675.225Q3 18.675 2 17.762q-1-.912-1-2.487 0-1.625 1.338-2.638 1.337-1.012 3.712-1.212.975-.075 1.463-.312Q8 10.874 8 10.45q0-.55-.525-.862Q6.95 9.275 5.75 9.1a.9.9 0 0 1-.638-.375A.98.98 0 0 1 4.926 8a1.04 1.04 0 0 1 .35-.687.86.86 0 0 1 .7-.213q2.075.3 3.05 1.113T10 10.45q0 1.325-.963 2.075-.962.75-2.837.9-1.6.125-2.4.587-.8.463-.8 1.263m9.95 3.9L8.825 15.05l9.55-9.55q.5-.5 1.188-.5t1.187.5l1.75 1.75q.5.5.5 1.188t-.5 1.187zM8.975 20q-.425.1-.75-.225T8 19.025l.825-3.975 4.125 4.125z"
-    />
-  </Svg>
+    <g clipPath="url(#ic_upload_svg__a)">
+      <path
+        fill={props.fill || '#33292C'}
+        d="m21.31 6.878-4.188-4.19a1.5 1.5 0 0 0-2.122 0L3.44 14.25A1.49 1.49 0 0 0 3 15.31v4.19A1.5 1.5 0 0 0 4.5 21h4.19a1.49 1.49 0 0 0 1.06-.44L21.31 9a1.5 1.5 0 0 0 0-2.122M8.69 19.5H4.5v-4.19l8.25-8.25 4.19 4.19zM18 10.189 13.81 6l2.25-2.25 4.19 4.189z"
+      />
+    </g>
+    <defs>
+      <clipPath id="ic_upload_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
 );
 export default SvgIcUpload;

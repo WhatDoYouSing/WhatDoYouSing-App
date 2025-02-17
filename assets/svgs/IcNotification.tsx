@@ -1,26 +1,25 @@
 import * as React from 'react';
-import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
-const SvgIcNotification = (props: SvgProps) => (
-  <Svg
+import type { SVGProps } from 'react';
+const SvgIcNotification = (props: SVGProps<SVGSVGElement>) => (
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
-    <G clipPath="url(#ic_notification_svg__a)">
-      <Path
-        fill="#33292C"
-        d="M19.29 17.29 18 16v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-1.29 1.29c-.63.63-.19 1.71.7 1.71h13.17c.9 0 1.34-1.08.71-1.71M16 17H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5zm-4 5c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2"
+    <g clipPath="url(#ic_notification_svg__a)">
+      <path
+        fill="#343330"
+        d="M20.794 16.494c-.52-.896-1.294-3.432-1.294-6.744a7.5 7.5 0 0 0-15 0c0 3.313-.774 5.848-1.295 6.744A1.5 1.5 0 0 0 4.5 18.75h3.826a3.75 3.75 0 0 0 7.348 0H19.5a1.5 1.5 0 0 0 1.294-2.256M12 20.25a2.25 2.25 0 0 1-2.12-1.5h4.24a2.25 2.25 0 0 1-2.12 1.5m-7.5-3c.722-1.241 1.5-4.117 1.5-7.5a6 6 0 1 1 12 0c0 3.38.776 6.256 1.5 7.5z"
       />
-    </G>
-    <Defs>
-      <ClipPath id="ic_notification_svg__a">
-        <Path fill="#fff" d="M0 0h24v24H0z" />
-      </ClipPath>
-    </Defs>
-  </Svg>
+    </g>
+    <defs>
+      <clipPath id="ic_notification_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
 );
 export default SvgIcNotification;

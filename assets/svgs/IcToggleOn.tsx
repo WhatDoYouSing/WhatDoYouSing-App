@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { SVGProps } from 'react';
-const SvgIcCheckOn = (props: SVGProps<SVGSVGElement>) => (
+const SvgIcToggleOn = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -9,17 +9,19 @@ const SvgIcCheckOn = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 24 24"
     {...props}
   >
-    <g clipPath="url(#ic_check_on_svg__a)">
+    <g clipPath="url(#ic_toggle_on_svg__a)">
       <path
         fill="#FF005C"
-        d="m21.53 7.28-12 12a.75.75 0 0 1-1.061 0l-5.25-5.25a.75.75 0 0 1 1.061-1.06L9 17.69 20.468 6.22a.75.75 0 1 1 1.061 1.06"
+        fillRule="evenodd"
+        d="M16.75 5h-9a6.75 6.75 0 0 0 0 13.5h9a6.75 6.75 0 0 0 0-13.5m0 3a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5"
+        clipRule="evenodd"
       />
     </g>
     <defs>
-      <clipPath id="ic_check_on_svg__a">
+      <clipPath id="ic_toggle_on_svg__a">
         <path fill="#fff" d="M0 0h24v24H0z" />
       </clipPath>
     </defs>
   </svg>
 );
-export default SvgIcCheckOn;
+export default SvgIcToggleOn;

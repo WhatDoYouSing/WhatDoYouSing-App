@@ -1,26 +1,25 @@
 import * as React from 'react';
-import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
-const SvgIcArrowLeft = (props: SvgProps) => (
-  <Svg
+import type { SVGProps } from 'react';
+const SvgIcArrowLeft = (props: SVGProps<SVGSVGElement>) => (
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
-    <G clipPath="url(#ic_arrow_left_svg__a)">
-      <Path
+    <g clipPath="url(#ic_arrow_left_svg__a)">
+      <path
         fill="#33292C"
-        d="M16.88 2.88a1.25 1.25 0 0 0-1.77 0L6.7 11.29a.996.996 0 0 0 0 1.41l8.41 8.41c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.54 12l7.35-7.35c.48-.49.48-1.28-.01-1.77"
+        d="M15.53 18.97a.75.75 0 1 1-1.061 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.061 1.06L8.56 12z"
       />
-    </G>
-    <Defs>
-      <ClipPath id="ic_arrow_left_svg__a">
-        <Path fill="#fff" d="M0 0h24v24H0z" />
-      </ClipPath>
-    </Defs>
-  </Svg>
+    </g>
+    <defs>
+      <clipPath id="ic_arrow_left_svg__a">
+        <path fill="#fff" d="M0 0h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
 );
 export default SvgIcArrowLeft;

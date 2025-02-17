@@ -1,26 +1,25 @@
 import * as React from 'react';
-import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
-const SvgIcFilterOn = (props: SvgProps) => (
-  <Svg
+import type { SVGProps } from 'react';
+const SvgIcFilterOn = (props: SVGProps<SVGSVGElement>) => (
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={25}
-    viewBox="0 0 24 25"
+    width="1em"
+    height="1em"
     fill="none"
+    viewBox="0 0 24 25"
     {...props}
   >
-    <G clipPath="url(#ic_filter_on_svg__a)">
-      <Path
+    <g clipPath="url(#ic_filter_on_svg__a)">
+      <path
         fill="#FF005C"
-        d="M3 18.64c0 .55.45 1 1 1h5v-2H4c-.55 0-1 .45-1 1m0-12c0 .55.45 1 1 1h9v-2H4c-.55 0-1 .45-1 1m10 14v-1h7c.55 0 1-.45 1-1s-.45-1-1-1h-7v-1c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1m-6-10v1H4c-.55 0-1 .45-1 1s.45 1 1 1h3v1c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1m14 2c0-.55-.45-1-1-1h-9v2h9c.55 0 1-.45 1-1m-5-3c.55 0 1-.45 1-1v-1h3c.55 0 1-.45 1-1s-.45-1-1-1h-3v-1c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .55.45 1 1 1"
+        d="M3.75 9.25h3.094a3 3 0 0 0 5.812 0h7.594a.75.75 0 1 0 0-1.5h-7.594a3 3 0 0 0-5.812 0H3.75a.75.75 0 0 0 0 1.5m6-2.25a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3m10.5 9.75h-1.594a3 3 0 0 0-5.812 0H3.75a.75.75 0 1 0 0 1.5h9.094a3 3 0 0 0 5.812 0h1.594a.75.75 0 1 0 0-1.5M15.75 19a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"
       />
-    </G>
-    <Defs>
-      <ClipPath id="ic_filter_on_svg__a">
-        <Path fill="#fff" d="M0 .64h24v24H0z" />
-      </ClipPath>
-    </Defs>
-  </Svg>
+    </g>
+    <defs>
+      <clipPath id="ic_filter_on_svg__a">
+        <path fill="#fff" d="M0 .64h24v24H0z" />
+      </clipPath>
+    </defs>
+  </svg>
 );
 export default SvgIcFilterOn;
