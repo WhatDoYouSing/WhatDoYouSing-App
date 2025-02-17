@@ -90,23 +90,28 @@ const BottomModal = ({
           </View>
 
           {/* 컨텐츠 */}
-          <View className="bg-white w-full pb-[27px]">
+          <View className="bg-primaryBg w-full pb-[27px]">
             {options?.length > 0 &&
-              options.map((option) => (
-                <TouchableOpacity
-                  key={option.id}
-                  onPress={option.action}
-                  className="flex-row bg-white h-14 justify-center items-center border-b-[1px] border-borderBg gap-2"
-                >
-                  {hasCheckBox && <IcSelectOff width={18} height={18} />}
-                  <Typo
-                    variant="text-16_M"
-                    className={option.text === '삭제' ? 'text-brand' : 'text-black'}
+              options.map((option, index) => {
+                const isLast = index === options.length - 1;
+                return (
+                  <TouchableOpacity
+                    key={option.id}
+                    onPress={option.action}
+                    className={`flex-row bg-primaryBg h-14 justify-center items-center gap-2 ${
+                      isLast ? '' : 'border-b-[1px] border-borderBg'
+                    }`}
                   >
-                    {option.text}
-                  </Typo>
-                </TouchableOpacity>
-              ))}
+                    {hasCheckBox && <IcSelectOff width={18} height={18} />}
+                    <Typo
+                      variant="text-16_M"
+                      className={option.text === '삭제' ? 'text-brand' : 'text-black'}
+                    >
+                      {option.text}
+                    </Typo>
+                  </TouchableOpacity>
+                );
+              })}
             {children}
           </View>
         </Animated.View>
