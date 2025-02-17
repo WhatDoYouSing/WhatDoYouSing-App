@@ -29,8 +29,3 @@ export const VISIBILITY_OPTIONS = [
   { key: 'friends', label: '친구공개', icon: <IcViewFriends width={14} height={14} /> },
   { key: 'private', label: '나만보기', icon: <IcViewOnlyMe width={14} height={14} /> },
 ];
-
-export function getVisibilityIcon(label: string) {
-  const option = VISIBILITY_OPTIONS.find((opt) => opt.label === label);
-  return option ? option.icon : null;
-}

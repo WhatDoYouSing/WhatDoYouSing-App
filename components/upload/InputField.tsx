@@ -5,7 +5,7 @@ import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
 
 import { Tag, Typo } from 'components/common';
 import { IcX } from 'assets/svgs';
-import { getVisibilityIcon } from 'constants/upload';
+import { getVisibilityIcon } from 'utils/getVisibilityIcon';
 import { EMOTIONS } from 'constants/emotions';
 
 interface InputFieldProps {
