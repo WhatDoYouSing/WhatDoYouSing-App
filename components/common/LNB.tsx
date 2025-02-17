@@ -3,25 +3,25 @@ import { View, TouchableOpacity } from 'react-native';
 import Typo from './Typo';
 
 interface LNBProps {
-  menuItems: string[];
-  selectedItem: string;
-  onMenuSelect: (label: string) => void;
+  tabItems: string[];
+  selectedTab: string;
+  handleTabSelect: (label: string) => void;
 }
 
-const LNB = ({ menuItems, selectedItem, onMenuSelect }: LNBProps) => {
-  const isFourItems = menuItems.length >= 4;
+const LNB = ({ tabItems, selectedTab, handleTabSelect }: LNBProps) => {
+  const isFourItems = tabItems.length >= 4;
 
   return (
     <View className="flex flex-row w-full bg-secondaryBg border-b border-black h-11 box-content">
-      {menuItems.map((label, index) => {
-        const isSelected = selectedItem === label;
-        const isLastItem = index === menuItems.length - 1;
+      {tabItems.map((label, index) => {
+        const isSelected = selectedTab === label;
+        const isLastItem = index === tabItems.length - 1;
 
         return (
           <TouchableOpacity
             key={label}
             className={`flex-1 justify-center px-5 ${isSelected ? 'bg-black' : ''} ${isLastItem ? 'border-r-0' : 'border-r border-black'}`}
-            onPress={() => onMenuSelect(label)}
+            onPress={() => handleTabSelect(label)}
           >
             <Typo
               variant={'text-16_M'}

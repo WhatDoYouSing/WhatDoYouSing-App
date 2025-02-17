@@ -4,7 +4,7 @@ import Typo from 'components/common/Typo';
 import { IcArrowDown, IcArrowUp, IcSearch, IcNotification } from 'assets/svgs';
 import { LNB } from 'components/common';
 import CtgryDropdown from './CtgryDropdown';
-import { useTabMenu } from 'hooks/useTabMenu';
+import useTab from 'hooks/useTab';
 
 interface CtgryTopBarProps {
   selectedCategory: string;
@@ -14,7 +14,7 @@ interface CtgryTopBarProps {
 const CtgryTopBar = ({ selectedCategory, setSelectedCategory }: CtgryTopBarProps) => {
   const CATEGORIES = ['통합', '노트', '플리'];
   const MENU_ITEMS = ['전체', '팔로우 중'];
-  const { menuItems, selectedItem, handleMenuSelect } = useTabMenu(MENU_ITEMS);
+  const { tabItems, selectedTab, handleTabSelect } = useTab(MENU_ITEMS);
   const [isActive, setIsActive] = useState(false);
 
   const toggleDropdown = () => {
@@ -61,9 +61,9 @@ const CtgryTopBar = ({ selectedCategory, setSelectedCategory }: CtgryTopBarProps
       </View>
       {/* LNB */}
       <LNB
-        menuItems={menuItems}
-        selectedItem={selectedItem}
-        onMenuSelect={handleMenuSelect}
+        tabItems={tabItems}
+        selectedTab={selectedTab}
+        handleTabSelect={handleTabSelect}
       />
     </>
   );

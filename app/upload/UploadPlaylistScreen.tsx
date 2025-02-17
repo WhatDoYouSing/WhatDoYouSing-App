@@ -1,12 +1,10 @@
 import { View } from 'react-native';
-import { Typo } from 'components/common';
+import { Header } from 'components/common';
 
 const UploadPlaylistScreen = () => {
   return (
-    <View>
-      <Typo variant="text-18_SB" className="text-brand">
-        UploadPlaylistScreen
-      </Typo>
+    <View className="flex-1 bg-borderBg">
+      <Header title="노트 업로드" />
     </View>
   );
 };
