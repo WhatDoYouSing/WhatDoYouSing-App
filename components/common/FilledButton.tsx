@@ -60,7 +60,7 @@ const FilledButton = ({
     <TouchableOpacity
       {...props}
       className={`
-        flex-row justify-center items-center gap-1 w-[100%] rounded-[2]
+        flex-row justify-center items-center gap-1 w-full rounded-[2]
         ${sizeStyle}
         ${typeStyle}
         ${className}
