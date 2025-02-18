@@ -6,6 +6,7 @@ import Typo from './Typo';
 interface HeaderProps {
   title: string;
   type?: 'button' | 'icon' | 'non-icon' | 'non-back' | 'my';
+  handleBack?: () => void;
   onBtnClick?: () => void;
   isBtnActive?: boolean;
   isCalendarActive?: boolean;
@@ -14,6 +15,7 @@ interface HeaderProps {
 const Header = ({
   title,
   type = 'non-icon',
+  handleBack,
   onBtnClick,
   isBtnActive = false,
   isCalendarActive = false,
@@ -23,13 +25,18 @@ const Header = ({
   const showBackIcon = ['button', 'icon', 'non-icon'].includes(type);
   const showSearchIcon = ['icon', 'my', 'non-back'].includes(type);
 
+  const onBack = () => {
+    if (handleBack) handleBack();
+    else router.back();
+  };
+
   return (
     <View className="w-full pt-12 bg-primaryBg border-b border-black">
       <View className="relative flex flex-row justify-center items-center h-[60]">
         {showBackIcon && (
           <TouchableOpacity
             className="absolute left-4 flex items-center justify-center w-10 h-10"
-            onPress={() => router.back()}
+            onPress={onBack}
           >
             <IcArrowLeft width={24} height={24} />
           </TouchableOpacity>
@@ -48,9 +55,7 @@ const Header = ({
           </TouchableOpacity>
         )}
 
-        <Typo variant={'text-18_SB'} className="text-black">
-          {title}
-        </Typo>
+        <Typo variant={'text-18_SB'}>{title}</Typo>
 
         {showSearchIcon && (
           <TouchableOpacity className="absolute right-4 flex items-center justify-center w-10 h-10">
