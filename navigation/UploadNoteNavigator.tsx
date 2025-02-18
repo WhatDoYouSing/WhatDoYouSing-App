@@ -2,12 +2,12 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
-import UploadNoteLayout from 'app/upload/UploadNoteLayout';
-import SearchMusicScreen from 'app/upload/SearchMusicScreen';
-import SelectLyricScreen from 'app/upload/SelectLyricScreen';
-import UploadLinkScreen from 'app/upload/UploadLinkScreen';
-import UploadFieldScreen from 'app/upload/UploadFieldScreen';
-import UploadTagScreen from 'app/upload/UploadTagScreen';
+import UploadNoteLayout from 'app/upload/note/UploadNoteLayout';
+import SearchMusicScreen from 'app/upload/note/SearchMusicScreen';
+import SelectLyricScreen from 'app/upload/note/SelectLyricScreen';
+import UploadLinkScreen from 'app/upload/note/UploadLinkScreen';
+import UploadFieldScreen from 'app/upload/note/UploadFieldScreen';
+import UploadTagScreen from 'app/upload/note/UploadTagScreen';
 import { UploadNoteProvider } from 'contexts/UploadNoteContext';
 
 export type UploadNoteStackParamList = {

@@ -1,14 +1,16 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-
-import UploadPlaylistScreen from 'app/upload/UploadPlaylistScreen';
-import QuoteNoteScreen from 'app/upload/QuoteNoteScreen';
 import { UploadPlaylistProvider } from 'contexts/UploadPlaylistContext';
+
+import UploadPlaylistScreen from 'app/upload/playlist/UploadPlaylistScreen';
+import QuoteNoteScreen from 'app/upload/playlist/QuoteNoteScreen';
+import PlaylistVisibilityScreen from 'app/upload/playlist/PlaylistVisibilityScreen';
 
 export type UploadPlaylistStackParamList = {
   write: undefined;
   quote: undefined;
+  visibility: undefined;
 };
 
 const NoteStack = createNativeStackNavigator<UploadPlaylistStackParamList>();
@@ -18,6 +20,7 @@ const UploadPlaylistNavigator = () => (
     <NoteStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="write">
       <NoteStack.Screen name="write" component={UploadPlaylistScreen} />
       <NoteStack.Screen name="quote" component={QuoteNoteScreen} />
+      <NoteStack.Screen name="visibility" component={PlaylistVisibilityScreen} />
     </NoteStack.Navigator>
   </UploadPlaylistProvider>
 );
@@ -35,5 +38,13 @@ export const useUploadPlaylistNavigation = () => {
     navigation.navigate('quote');
   };
 
-  return { goToWrite, goToQuote };
+  const goToVisibility = () => {
+    navigation.navigate('visibility');
+  };
+
+  const goToTag = () => {
+    navigation.navigate('quote');
+  };
+
+  return { goToWrite, goToQuote, goToVisibility, goToTag };
 };
