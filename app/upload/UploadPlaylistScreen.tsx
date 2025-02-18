@@ -1,25 +1,21 @@
 import { useState } from 'react';
 import { ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
+import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
+import { useUploadPlaylistNavigation } from 'navigation/UploadPlaylistNavigator';
+
 import { DashedLine, FilledButton, Header, QuoteCard, Typo } from 'components/common';
 import { BottomMenu } from 'components/common';
 import { MemoInputModal } from 'components/upload';
-import { QuoteCardType } from 'types/Card/CardType';
-import { quoteCards } from 'components/common/Card/noteMock';
-
-interface QuotedNote {
-  note: QuoteCardType;
-  memo?: string;
-}
 
 const UploadPlaylistScreen = () => {
+  const { quotedNotes, setQuotedNotes } = useUploadPlaylistContext();
+  const { goToQuote } = useUploadPlaylistNavigation();
+
   const [titleText, setTitleText] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const [selectedNoteId, setSelectedNoteId] = useState<number | null>(null);
   const [isInputModalOpen, setIsInputModalOpen] = useState(false);
   const [memoText, setMemoText] = useState('');
-  const [quotedNotes, setQuotedNotes] = useState<QuotedNote[]>([
-    { note: quoteCards[0], memo: '' },
-  ]);
 
   // 선택된 노트 토글 (이미 선택된 경우 해제)
   const toggleSelectedNote = (id: number) => {
@@ -95,7 +91,7 @@ const UploadPlaylistScreen = () => {
         {/* 노트 인용 필드 */}
         <ScrollView className="flex-1 p-4">
           {quotedNotes.length > 0 ? (
-            <>
+            <View className="flex-col gap-2">
               {quotedNotes.map((item) => (
                 <TouchableOpacity
                   key={item.note.id}
@@ -113,7 +109,7 @@ const UploadPlaylistScreen = () => {
                   )}
                 </TouchableOpacity>
               ))}
-            </>
+            </View>
           ) : (
             <Typo
               variant="text-16_R"
@@ -127,11 +123,16 @@ const UploadPlaylistScreen = () => {
         {/* 클릭된 노트가 없을 때만 노트 인용하기 버튼 띄우기 */}
         {!selectedNoteId && (
           <View className="absolute bottom-4 flex-row gap-4 w-full px-4">
-            <FilledButton text="노트 인용하기" type={'outline'} className="flex-1" />
+            <FilledButton
+              text="노트 인용하기"
+              type={'outline'}
+              className="flex-1"
+              onPress={goToQuote}
+            />
             <FilledButton
               text="다음"
               className="flex-1"
-              isActive={quotedNotes.length > 0}
+              isActive={titleText && quotedNotes.length > 0}
             />
           </View>
         )}

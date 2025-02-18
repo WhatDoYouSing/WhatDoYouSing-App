@@ -39,7 +39,7 @@ const baseContent = {
   visibility: 'public',
 };
 
-const noteCards: NoteCardType[] = [
+export const noteCards: NoteCardType[] = [
   {
     type: 'note',
     id: 1,

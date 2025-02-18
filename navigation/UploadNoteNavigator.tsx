@@ -8,6 +8,7 @@ import SelectLyricScreen from 'app/upload/SelectLyricScreen';
 import UploadLinkScreen from 'app/upload/UploadLinkScreen';
 import UploadFieldScreen from 'app/upload/UploadFieldScreen';
 import UploadTagScreen from 'app/upload/UploadTagScreen';
+import { UploadNoteProvider } from 'contexts/UploadNoteContext';
 
 export type UploadNoteStackParamList = {
   search: { selectedTab: string };
@@ -20,13 +21,15 @@ export type UploadNoteStackParamList = {
 const NoteStack = createNativeStackNavigator<UploadNoteStackParamList>();
 
 const UploadNoteNavigator = () => (
-  <NoteStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="search">
-    <NoteStack.Screen name="search" component={UploadNoteLayout(SearchMusicScreen)} />
-    <NoteStack.Screen name="select" component={UploadNoteLayout(SelectLyricScreen)} />
-    <NoteStack.Screen name="link" component={UploadNoteLayout(UploadLinkScreen)} />
-    <NoteStack.Screen name="field" component={UploadNoteLayout(UploadFieldScreen)} />
-    <NoteStack.Screen name="tag" component={UploadNoteLayout(UploadTagScreen)} />
-  </NoteStack.Navigator>
+  <UploadNoteProvider>
+    <NoteStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="search">
+      <NoteStack.Screen name="search" component={UploadNoteLayout(SearchMusicScreen)} />
+      <NoteStack.Screen name="select" component={UploadNoteLayout(SelectLyricScreen)} />
+      <NoteStack.Screen name="link" component={UploadNoteLayout(UploadLinkScreen)} />
+      <NoteStack.Screen name="field" component={UploadNoteLayout(UploadFieldScreen)} />
+      <NoteStack.Screen name="tag" component={UploadNoteLayout(UploadTagScreen)} />
+    </NoteStack.Navigator>
+  </UploadNoteProvider>
 );
 
 export default UploadNoteNavigator;
