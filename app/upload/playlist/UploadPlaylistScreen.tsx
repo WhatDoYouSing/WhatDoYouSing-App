@@ -8,10 +8,10 @@ import { BottomMenu } from 'components/common';
 import { MemoInputModal } from 'components/upload';
 
 const UploadPlaylistScreen = () => {
-  const { quotedNotes, setQuotedNotes } = useUploadPlaylistContext();
-  const { goToQuote } = useUploadPlaylistNavigation();
+  const { quotedNotes, setQuotedNotes, field, setField } = useUploadPlaylistContext();
+  const { goToQuote, goToVisibility } = useUploadPlaylistNavigation();
 
-  const [titleText, setTitleText] = useState('');
+  const [titleText, setTitleText] = useState(field.title || '');
   const [isFocused, setIsFocused] = useState(false);
   const [selectedNoteId, setSelectedNoteId] = useState<number | null>(null);
   const [isInputModalOpen, setIsInputModalOpen] = useState(false);
@@ -71,6 +71,16 @@ const UploadPlaylistScreen = () => {
         { label: '삭제', action: handleDelete },
       ];
 
+  const handleQuote = () => {
+    setField({ ...field, title: titleText });
+    goToQuote();
+  };
+
+  const onNext = () => {
+    setField({ ...field, title: titleText });
+    goToVisibility();
+  };
+
   return (
     <>
       <View className="flex-1 bg-borderBg">
@@ -127,12 +137,13 @@ const UploadPlaylistScreen = () => {
               text="노트 인용하기"
               type={'outline'}
               className="flex-1"
-              onPress={goToQuote}
+              onPress={handleQuote}
             />
             <FilledButton
               text="다음"
               className="flex-1"
               isActive={titleText && quotedNotes.length > 0}
+              onPress={onNext}
             />
           </View>
         )}

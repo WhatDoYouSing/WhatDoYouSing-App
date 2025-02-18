@@ -15,7 +15,7 @@ const CollectionInfo = ({ item, ...props }: CollectionInfoProps) => {
     >
       <Image
         className="rounded-[2] w-16 h-16 bg-secondaryBg"
-        source={{ uri: item.album_art || '' }} // 임시 이미지 (명세서 수정 필요)
+        source={{ uri: item.album_art || '' }} // 임시 이미지
       />
       <View className="flex-1 gap-1">
         <View className="flex-row gap-1 items-center">

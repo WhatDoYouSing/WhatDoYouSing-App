@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
-import { useUploadNoteContext } from 'contexts/UploadNoteContext';
-import { FilledButton, FilterTags, Typo } from 'components/common';
-import { MusicInfo } from 'components/upload';
+import { useState } from 'react';
+import { ScrollView, View } from 'react-native';
+import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
+
+import { FilledButton, FilterTags, Header, Typo } from 'components/common';
+import { PlaylistInfo } from 'components/upload';
 import { SelectedFilterType } from 'components/common/Tags/FilterTags';
 
 const initialFilter: SelectedFilterType = {
@@ -11,8 +12,8 @@ const initialFilter: SelectedFilterType = {
   일상맥락: new Set<number>(),
 };
 
-const UploadTagScreen = () => {
-  const { selectedMusic } = useUploadNoteContext();
+const PlaylistTagScreen = () => {
+  const { quotedNotes, field } = useUploadPlaylistContext();
   const [selectedFilter, setSelectedFilter] = useState(initialFilter);
 
   // 태그 선택 & 해제 함수
@@ -26,23 +27,21 @@ const UploadTagScreen = () => {
 
   return (
     <View className="flex-1 bg-primaryBg">
+      <Header title="플리 업로드" />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <MusicInfo music={selectedMusic} />
-
+        <PlaylistInfo title={field.title} count={quotedNotes.length} />
         <Typo
           variant="text-12_R"
           className="py-3 w-full bg-borderBg text-black leading-[1.5] text-center"
         >
           태그를 등록해서
           <br />
-          노래에 대한 무드를 기록해 보세요!
+          노래들에 대한 무드를 기록해 보세요!
         </Typo>
-
         <FilterTags
           selectedFilter={selectedFilter}
           handleSelectedFilter={handleSelectedFilter}
         />
-
         <View className="h-20" />
       </ScrollView>
 
@@ -53,4 +52,4 @@ const UploadTagScreen = () => {
   );
 };
 
-export default UploadTagScreen;
+export default PlaylistTagScreen;
