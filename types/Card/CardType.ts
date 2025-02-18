@@ -6,7 +6,7 @@ export interface UserType {
 }
 
 export interface BaseContent {
-  type: string;
+  type?: string;
   id: number;
   user: UserType;
   created_at: string;

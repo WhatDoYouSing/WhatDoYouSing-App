@@ -111,9 +111,8 @@ const noteCards: NoteCardType[] = [
   },
 ];
 
-const quoteCards: QuoteCardType[] = [
+export const quoteCards: QuoteCardType[] = [
   {
-    type: 'quote',
     id: 5,
     user: baseUser1,
     ...baseContent,
@@ -131,7 +130,6 @@ const quoteCards: QuoteCardType[] = [
     location_address: '서울특별시 강남구',
   },
   {
-    type: 'quote',
     id: 6,
     user: baseUser2,
     ...baseContent,
