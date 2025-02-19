@@ -1,29 +1,13 @@
-import { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
 
 import { FilledButton, FilterTags, Header, Typo } from 'components/common';
 import { PlaylistInfo } from 'components/upload';
-import { SelectedFilterType } from 'components/common/Tags/FilterTags';
-
-const initialFilter: SelectedFilterType = {
-  시간: new Set<number>(),
-  계절: new Set<number>(),
-  일상맥락: new Set<number>(),
-};
+import { useUploadTag } from 'hooks/useUploadTag';
 
 const PlaylistTagScreen = () => {
   const { quotedNotes, field } = useUploadPlaylistContext();
-  const [selectedFilter, setSelectedFilter] = useState(initialFilter);
-
-  // 태그 선택 & 해제 함수
-  const handleSelectedFilter = (category: keyof SelectedFilterType, tag: number) => {
-    setSelectedFilter((prev) => {
-      const newSet = new Set(prev[category]);
-      newSet.has(tag) ? newSet.delete(tag) : newSet.add(tag);
-      return { ...prev, [category]: newSet };
-    });
-  };
+  const { selectedFilter, handleSelectedFilter } = useUploadTag();
 
   return (
     <View className="flex-1 bg-primaryBg">
