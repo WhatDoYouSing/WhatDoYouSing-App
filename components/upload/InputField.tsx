@@ -1,12 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { TextInputProps, TouchableOpacityProps } from 'react-native';
 import { useUploadNoteNavigation } from 'navigation/UploadNoteNavigator';
 
-import { Tag, Typo } from 'components/common';
+import { BottomModal, Tag, Typo } from 'components/common';
 import { IcX } from 'assets/svgs';
-import { getVisibilityIcon } from 'utils/getVisibilityIcon';
+import { getVisibilityIcon, getVisibilityLabel } from 'utils/getVisibility';
 import { EMOTIONS } from 'constants/emotions';
+import { VISIBILITY_OPTIONS } from 'constants/upload';
 
 interface InputFieldProps {
   label: string;
@@ -148,19 +149,48 @@ const Emotion = ({ selectedEmotion, onSelectEmotion }: EmotionProps) => {
 // 공개 범위 필드
 interface VisibilityProps extends TouchableOpacityProps {
   visibility: string;
+  setVisibility: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Visibility = ({ visibility, ...props }: VisibilityProps) => {
-  const visibilityIcon = getVisibilityIcon(visibility);
+const Visibility = ({ visibility, setVisibility, ...props }: VisibilityProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSelectVisibility = (selected: string) => {
+    setVisibility(selected);
+    setIsModalOpen(false);
+  };
 
   return (
     <View className="flex-1">
-      <TouchableOpacity {...props} className="flex-row items-center gap-[6] w-fit">
-        {visibilityIcon}
+      <TouchableOpacity
+        {...props}
+        className="flex-row items-center gap-[6] w-fit"
+        onPress={() => setIsModalOpen(true)}
+      >
+        {getVisibilityIcon(visibility)}
         <Typo variant="text-14_R" className="text-black leading-[1.5] pt-[2] pb-[1]">
-          {visibility}
+          {getVisibilityLabel(visibility)}
         </Typo>
       </TouchableOpacity>
+
+      <BottomModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <Typo variant="text-18_SB" className="flex-1 p-4 text-center">
+          공개
+        </Typo>
+
+        {VISIBILITY_OPTIONS.map((option, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => handleSelectVisibility(option.key)}
+            className="flex-row bg-primaryBg h-[72] justify-center items-center gap-2 border-t border-borderBg"
+          >
+            {option.icon}
+            <Typo variant="text-16_M" className="pt-[2]">
+              {option.label}
+            </Typo>
+          </TouchableOpacity>
+        ))}
+      </BottomModal>
     </View>
   );
 };

@@ -17,3 +17,10 @@ export interface MusicInfoType {
   artist: string;
   song: string;
 }
+
+export interface CollectionInfoType {
+  id: number;
+  name: string;
+  album_art?: string;
+  subtitle?: string;
+}

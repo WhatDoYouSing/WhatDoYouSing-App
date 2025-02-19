@@ -128,7 +128,7 @@ const HomeScreen = () => {
       {/* 상단 스크롤 버튼 */}
       <ScrollTopBtn onPress={scrollToTop} />
       {/* 하단 탭 */}
-      {isSelectionMode && <BottomMenu menuItems={menuItems} />}
+      <BottomMenu visible={isSelectionMode} menuItems={menuItems} />
     </View>
   );
 };

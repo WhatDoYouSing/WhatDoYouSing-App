@@ -16,22 +16,17 @@ const BaseModal = ({
   onConfirm,
   title,
   message,
-  type,
+  type = 'delete',
 }: BaseModalProps) => {
   const confirmText =
     type === 'exit' ? '나가기' : type === 'unfollow' ? '언팔로우' : '삭제';
 
   return (
-    <Modal
-      animationType="none"
-      transparent={true}
-      visible={isOpen}
-      onRequestClose={onClose}
-    >
+    <Modal animationType="none" transparent visible={isOpen} onRequestClose={onClose}>
       {/* 딤드 */}
       <View className="flex w-full h-full bg-black/50 justify-center items-center">
         {/* 컨텐츠 */}
-        <View className="flex bg-white w-[358px] border-[1px] border-black justify-center items-center">
+        <View className="flex bg-white w-[358px] border-[1px] border-black rounded-sm justify-center items-center">
           <Typo
             variant="text-18_SB"
             className="flex w-full text-center justify-center p-4"
@@ -41,7 +36,7 @@ const BaseModal = ({
           <View className="w-full h-[0.5px] border-[0.5px] border-black border-dashed" />
           <Typo
             variant="text-14_R"
-            className="flex w-full text-center justify-center py-4 border-b-[1px] border-black"
+            className="flex w-full text-center justify-center py-4 border-b-[1px] border-black leading-[1.5]"
           >
             {message}
           </Typo>

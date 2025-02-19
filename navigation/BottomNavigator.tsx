@@ -84,7 +84,7 @@ const BottomNavigator = () => {
             options={() => ({
               unmountOnBlur: true, // 해당 탭이 포커스를 잃을 때 컴포넌트를 자동으로 언마운트
               tabBarIcon: ({ color }) => icon({ fill: color }),
-              tabBarItemStyle: { borderRightWidth: 1, height: 80 },
+              tabBarItemStyle: { borderRightWidth: isLast ? 0 : 1, height: 78 },
             })}
             listeners={({ route }) => ({
               tabPress: (e: any) => {
@@ -114,19 +114,19 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: colors.black,
-    height: 82,
+    height: 80,
   },
   tabItem: {
     borderRightWidth: 1,
     borderColor: colors.black,
-    height: 80,
+    height: 78,
   },
   lastTabItem: {
     borderRightWidth: 0,
-    height: 80,
+    height: 78,
   },
   tabIcon: {
-    marginTop: 3,
+    marginTop: 2,
     width: 40,
     height: 40,
   },
