@@ -21,7 +21,7 @@ const PlaylistVisibilityScreen = () => {
       <Header title="플리 업로드" />
       <PlaylistInfo title={field.title} count={quotedNotes.length} />
       <InputField label="공개" isRequired>
-        <InputField.Visibility visibility={visibility} />
+        <InputField.Visibility visibility={visibility} setVisibility={setVisibility} />
       </InputField>
       <View className="absolute bottom-4 w-full px-4">
         <FilledButton text="다음" onPress={onNext} />

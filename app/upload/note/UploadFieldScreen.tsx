@@ -19,7 +19,7 @@ const UploadFieldScreen = () => {
   });
   const [location, setLocation] = useState({ placeName: '', address: '' });
   const [emotion, setEmotion] = useState(0);
-  const [visibility, setVisibility] = useState(VISIBILITY_OPTIONS[0].label);
+  const [visibility, setVisibility] = useState(field.visibility);
 
   // 입력 필드 포커싱
   const [focusedField, setFocusedField] = useState<string | null>(null);
@@ -92,7 +92,10 @@ const UploadFieldScreen = () => {
                       onSelectEmotion={setEmotion}
                     />
                   ) : field.label === '공개' ? (
-                    <InputField.Visibility visibility={visibility} />
+                    <InputField.Visibility
+                      visibility={visibility}
+                      setVisibility={setVisibility}
+                    />
                   ) : (
                     <InputField.TextField
                       isMusic={selectedTab === '음원' && field.label === '가사'}

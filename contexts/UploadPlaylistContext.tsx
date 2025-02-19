@@ -27,7 +27,7 @@ export const UploadPlaylistProvider = ({ children }: { children: ReactNode }) =>
   const [quotedNotes, setQuotedNotes] = useState<QuotedNoteType[]>([]);
   const [field, setField] = useState({
     title: '',
-    visibility: VISIBILITY_OPTIONS[0].label,
+    visibility: VISIBILITY_OPTIONS[0].key,
   });
 
   return (
