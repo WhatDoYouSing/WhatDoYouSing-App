@@ -18,7 +18,10 @@ const QuoteCollectionList = ({
   setSelectedCards,
   setIsSelectionMode,
 }: QuoteCollectionListProps) => {
-  const [collections, setCollections] = useState<CollectionInfoType[]>([]);
+  const [collections, setCollections] = useState<CollectionInfoType[]>([
+    { id: 1, name: '올해 최고의 노래들' }, // 임시 데이터
+    { id: 2, name: '보관함 제일 최신' },
+  ]);
   const [selectedCollection, setSelectedCollection] = useState<CollectionInfoType>(null);
 
   // 카드 선택 토글
