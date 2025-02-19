@@ -44,9 +44,9 @@ const BottomMenu = ({
               <TouchableOpacity
                 key={label}
                 onPress={action}
-                className={`flex-1 items-center py-[18] ${
-                  !isLastItem ? 'border-r border-black' : ''
-                } ${isCancel || isDelete ? 'bg-primaryBg' : ''}`}
+                className={`flex-1 items-center py-[18]
+                ${isLastItem || 'border-r border-black'}
+                ${(isCancel || isDelete) && 'bg-primaryBg'}`}
               >
                 <Typo
                   variant="text-16_SB"

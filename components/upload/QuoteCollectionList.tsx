@@ -32,56 +32,51 @@ const QuoteCollectionList = ({
     });
   };
 
-  return (
+  return selectedCollection ? (
     <>
-      {selectedCollection ? (
-        <>
-          <SelectCard count={selectedCards.length} />
-          <View className="items-center gap-6 px-4 py-6 border-b border-black">
-            <Typo variant="text-20_SB">{selectedCollection.name}</Typo>
-            <View className="flex-row gap-1 items-center">
-              {/* 추후 수정 예정 */}
-              <Typo variant="text-12_R" className="leading-[1.3]">
-                노트 1 ·
-              </Typo>
-              <Typo variant="text-12_R" className="text-nonActiveGrey leading-[1.3]">
-                플리 1
-              </Typo>
-            </View>
-          </View>
-          <FlatList
-            data={noteCards}
-            keyExtractor={(item) => `item-${item.id}`}
-            className="flex-grow-0 h-fit"
-            showsVerticalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <NoteCard
-                item={{
-                  ...(item as QuoteCardType),
-                  isBig: false,
-                  isSelected: selectedCards.includes(item.id),
-                  isSelectionMode: true,
-                  toggleSelectCard,
-                  handleLongPress: toggleSelectCard,
-                }}
-              />
-            )}
-            ItemSeparatorComponent={() => <View className="border-b border-borderBg" />}
+      <SelectCard count={selectedCards.length} />
+      <View className="items-center gap-6 px-4 py-6 border-b border-black">
+        <Typo variant="text-20_SB">{selectedCollection.name}</Typo>
+        <View className="flex-row gap-1 items-center">
+          {/* 추후 수정 예정 */}
+          <Typo variant="text-12_R" className="leading-[1.3]">
+            노트 1 ·
+          </Typo>
+          <Typo variant="text-12_R" className="text-nonActiveGrey leading-[1.3]">
+            플리 1
+          </Typo>
+        </View>
+      </View>
+      <FlatList
+        data={noteCards}
+        keyExtractor={(item) => `item-${item.id}`}
+        className="flex-grow-0 h-fit"
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <NoteCard
+            item={{
+              ...(item as QuoteCardType),
+              isBig: false,
+              isSelected: selectedCards.includes(item.id),
+              isSelectionMode: true,
+              toggleSelectCard,
+              handleLongPress: toggleSelectCard,
+            }}
           />
-          <View className="flex-1 bg-secondaryBg" />
-        </>
-      ) : (
-        <FlatList
-          data={collections}
-          keyExtractor={(item) => `item-${item.id}`}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <CollectionInfo item={item} onPress={() => setSelectedCollection(item)} />
-          )}
-        />
-      )}
+        )}
+        ItemSeparatorComponent={() => <View className="border-b border-borderBg" />}
+      />
+      <View className="flex-1 bg-secondaryBg" />
     </>
+  ) : (
+    <FlatList
+      data={collections}
+      keyExtractor={(item) => `item-${item.id}`}
+      showsVerticalScrollIndicator={false}
+      renderItem={({ item }) => (
+        <CollectionInfo item={item} onPress={() => setSelectedCollection(item)} />
+      )}
+    />
   );
 };
-
 export default QuoteCollectionList;

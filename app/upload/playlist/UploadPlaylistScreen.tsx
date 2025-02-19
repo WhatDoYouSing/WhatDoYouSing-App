@@ -3,8 +3,8 @@ import { ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
 import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
 import { useUploadPlaylistNavigation } from 'navigation/UploadPlaylistNavigator';
 
-import { DashedLine, FilledButton, Header, QuoteCard, Typo } from 'components/common';
-import { BottomMenu } from 'components/common';
+import { Header, Typo } from 'components/common';
+import { BottomMenu, DashedLine, FilledButton, QuoteCard } from 'components/common';
 import { MemoInputModal } from 'components/upload';
 
 const UploadPlaylistScreen = () => {
@@ -71,14 +71,9 @@ const UploadPlaylistScreen = () => {
         { label: '삭제', action: handleDelete },
       ];
 
-  const handleQuote = () => {
+  const handleNavigate = (type: 'quote' | 'visibility') => {
     setField({ ...field, title: titleText });
-    goToQuote();
-  };
-
-  const onNext = () => {
-    setField({ ...field, title: titleText });
-    goToVisibility();
+    type === 'quote' ? goToQuote() : goToVisibility();
   };
 
   return (
@@ -137,13 +132,13 @@ const UploadPlaylistScreen = () => {
               text="노트 인용하기"
               type={'outline'}
               className="flex-1"
-              onPress={handleQuote}
+              onPress={() => handleNavigate('quote')}
             />
             <FilledButton
               text="다음"
               className="flex-1"
               isActive={titleText && quotedNotes.length > 0}
-              onPress={onNext}
+              onPress={() => handleNavigate('visibility')}
             />
           </View>
         )}
