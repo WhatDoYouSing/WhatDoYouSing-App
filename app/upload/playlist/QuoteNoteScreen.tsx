@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { useUploadPlaylistNavigation } from 'navigation/UploadPlaylistNavigator';
+import { router } from 'expo-router';
 import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
 
 import { BottomMenu, Header, LNB } from 'components/common';
@@ -11,7 +11,6 @@ import { noteCards } from 'components/common/Card/noteMock';
 
 const QuoteNoteScreen = () => {
   const { quotedNotes, setQuotedNotes } = useUploadPlaylistContext();
-  const { goToWrite } = useUploadPlaylistNavigation();
 
   const { tabItems, selectedTab, handleTabSelect } = useTab(['노트', '보관함']);
 
@@ -27,7 +26,7 @@ const QuoteNoteScreen = () => {
       .map((card) => ({ note: card, memo: '' }));
     setQuotedNotes(quoted);
     setIsSelectionMode(false);
-    goToWrite();
+    router.back();
   };
 
   // 하단메뉴: 취소 버튼 클릭 시 선택 모드 해제 및 선택된 카드 초기화

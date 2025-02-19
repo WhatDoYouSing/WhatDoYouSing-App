@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
 import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
 import { useUploadPlaylistNavigation } from 'navigation/UploadPlaylistNavigator';
+import { router } from 'expo-router';
 
-import { Header, Typo } from 'components/common';
+import { BaseModal, Header, Typo } from 'components/common';
 import { BottomMenu, DashedLine, FilledButton, QuoteCard } from 'components/common';
 import { MemoInputModal } from 'components/upload';
 
 const UploadPlaylistScreen = () => {
   const { quotedNotes, setQuotedNotes, field, setField } = useUploadPlaylistContext();
   const { goToQuote, goToVisibility } = useUploadPlaylistNavigation();
+
+  const [backModalOpen, setBackModalOpen] = useState(false);
 
   const [titleText, setTitleText] = useState(field.title || '');
   const [isFocused, setIsFocused] = useState(false);
@@ -76,10 +79,24 @@ const UploadPlaylistScreen = () => {
     type === 'quote' ? goToQuote() : goToVisibility();
   };
 
+  // 입력 값이 있다면 업로드 취소 모달 띄우기
+  const handleHeaderBack = () => {
+    if (titleText.trim() !== '' || quotedNotes.length > 0) {
+      setBackModalOpen(true);
+    } else {
+      router.back();
+    }
+  };
+
+  const handleBackConfirm = () => {
+    setBackModalOpen(false);
+    router.back();
+  };
+
   return (
     <>
       <View className="flex-1 bg-borderBg">
-        <Header title="플리 업로드" />
+        <Header title="플리 업로드" handleBack={handleHeaderBack} />
 
         {/* 제목 입력 필드 */}
         <TextInput
@@ -155,6 +172,15 @@ const UploadPlaylistScreen = () => {
       {isInputModalOpen && (
         <MemoInputModal {...{ memoText, setMemoText, handleSaveMemo }} />
       )}
+
+      {/* 업로드 취소 모달 */}
+      <BaseModal
+        isOpen={backModalOpen}
+        onClose={() => setBackModalOpen(false)}
+        onConfirm={handleBackConfirm}
+        title="업로드 취소"
+        message={`화면을 벗어나면 업로드가 취소됩니다.\n지금까지 작성한 내용을 삭제하시겠습니까?`}
+      />
     </>
   );
 };
