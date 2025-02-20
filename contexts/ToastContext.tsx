@@ -5,10 +5,11 @@ import { Toast } from 'components/common';
 type Toast = {
   id: string;
   message: string;
+  icon?: string;
 };
 
 type ToastContextValue = {
-  showToast: (message: string) => void;
+  showToast: (message: string, icon?: string) => void;
 };
 
 const ToastContext = createContext<ToastContextValue | null>(null);
@@ -16,9 +17,9 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const showToast = (message: string) => {
+  const showToast = (message: string, icon?: string) => {
     const id = Date.now().toString(); // 토스트를 중첩해서 띄우기 위해 고유한 id 생성
-    setToasts((prev) => [...prev, { id, message }]);
+    setToasts((prev) => [...prev, { id, message, icon }]);
   };
 
   const removeToast = (id: string) => {
@@ -38,6 +39,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
             key={toast.id}
             message={toast.message}
             onHide={() => removeToast(toast.id)}
+            icon={toast.icon}
           />
         ))}
       </View>
