@@ -37,8 +37,6 @@ export interface QuoteCardType extends BaseContent {
   location_address?: string;
   lyric?: string;
   singer?: string;
-
-  isMy?: boolean;
 }
 
 // PlaylistCard 타입

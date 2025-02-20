@@ -123,6 +123,7 @@ const UploadPlaylistScreen = () => {
                   <QuoteCard
                     item={item.note}
                     isClicked={item.note.id === selectedNoteId}
+                    isMy={false} // 추후 수정 필요
                   />
                   {item.memo && (
                     <Typo variant="text-16_R" className="py-4 leading-[1.5]">

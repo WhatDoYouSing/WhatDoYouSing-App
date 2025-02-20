@@ -6,8 +6,8 @@ import { useUploadNoteContext } from 'contexts/UploadNoteContext';
 import { BaseModal, Header, LNB } from 'components/common';
 import { UPLOAD_TAP_ITEMS } from 'constants/upload';
 
-const UploadNoteLayout = (Component: React.ComponentType<any>) => {
-  return (props: any) => {
+const UploadNoteLayout = <P extends object>(Component: React.ComponentType<P>) => {
+  return (props: P) => {
     const { replaceSearch, replaceLink, replaceField } = useUploadNoteNavigation();
     const { selectedTab, setSelectedTab, initField } = useUploadNoteContext();
     const [backModalOpen, setBackModalOpen] = useState(false);

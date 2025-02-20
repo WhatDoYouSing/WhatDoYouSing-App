@@ -18,7 +18,7 @@ const MemoInputModal = ({
       <TextInput
         value={memoText}
         onChangeText={setMemoText}
-        placeholder="메모를 입력하세요"
+        placeholder="메모를 입력해주세요!"
         className={`flex-1 text-16 font-GothicA1-Regular text-black placeholder-nonActiveGrey outline-none leading-[1.5]`}
         multiline
       />
