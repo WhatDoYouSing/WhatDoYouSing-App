@@ -29,7 +29,10 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     <ToastContext.Provider value={{ showToast }}>
       {children}
 
-      <View className="absolute w-full px-5 items-center gap-2" style={{ bottom: 96 }}>
+      <View
+        className="absolute w-full px-5 items-center gap-2"
+        style={{ bottom: 96, pointerEvents: 'none' }}
+      >
         {toasts.map((toast) => (
           <Toast
             key={toast.id}
