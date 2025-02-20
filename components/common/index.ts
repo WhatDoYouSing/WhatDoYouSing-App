@@ -5,6 +5,7 @@ import LNB from './LNB';
 import Toast from './Toast';
 import Typo from './Typo';
 import DashedBorder from './Card/DashedBorder';
+import DashedLine from './Card/DashedLine';
 import NoteCard from './Card/NoteCard';
 import QuoteCard from './Card/QuoteCard';
 import PlaylistCard from './Card/PlaylistCard';
@@ -30,6 +31,7 @@ export {
   Toast,
   Typo,
   DashedBorder,
+  DashedLine,
   NoteCard,
   QuoteCard,
   PlaylistCard,

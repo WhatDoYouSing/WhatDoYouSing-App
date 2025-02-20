@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import '../global.css';
 import BottomNavigator from 'navigation/BottomNavigator';
+import { Provider } from 'react-native-paper';
 import { ToastProvider } from 'contexts/ToastContext';
 
 // 로딩 중 화면 유지
@@ -32,9 +33,11 @@ const RootLayout = () => {
   }
 
   return (
-    <ToastProvider>
-      <BottomNavigator />
-    </ToastProvider>
+    <Provider>
+      <ToastProvider>
+        <BottomNavigator />
+      </ToastProvider>
+    </Provider>
   );
 };
 

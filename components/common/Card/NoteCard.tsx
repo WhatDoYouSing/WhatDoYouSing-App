@@ -9,7 +9,7 @@ interface NoteCardProps {
 const NoteCard = ({ item }: NoteCardProps) => {
   return (
     <TouchableOpacity
-      className="w-full max-w-md bg-primaryBg"
+      className="w-full max-w-md bg-primaryBg pt-1 pb-2"
       onLongPress={() => item.handleLongPress?.(item.id)}
       activeOpacity={0.8}
     >
@@ -30,29 +30,41 @@ const NoteCard = ({ item }: NoteCardProps) => {
 
       {/* 장소 정보 */}
       {item.isLocation && (
-        <View className="flex flex-col px-4 py-2">
-          <Typo variant="text-12_L">{item.location_name}</Typo>
-          <Typo variant="text-12_L">{item.location_address}</Typo>
-        </View>
-      )}
-
-      {/* 앨범 커버 및 곡 정보 */}
-      <SongInfo
-        album_art={item.album_art}
-        title={item.title}
-        singer={item.singer}
-        lyric={item.lyric}
-        isBig={item.isBig}
-      />
-
-      {/* 사용자 코멘트 */}
-      {item.isBig && (
-        <View className="px-4 py-2">
-          <Typo variant="text-14_R" numberOfLines={2} ellipsizeMode="tail">
-            {item.memo}
+        <View className="flex flex-col gap-[1] px-4 py-2">
+          <Typo variant="text-12_L" className="leading-[1.3]">
+            {item.location_name}
+          </Typo>
+          <Typo variant="text-12_L" className="leading-[1.3]">
+            {item.location_address}
           </Typo>
         </View>
       )}
+
+      <View className="gap-[2]">
+        {/* 앨범 커버 및 곡 정보 */}
+        <SongInfo
+          album_art={item.album_art}
+          title={item.title}
+          singer={item.singer}
+          lyric={item.lyric}
+          emotion={item.emotion}
+          isBig={item.isBig}
+        />
+
+        {/* 사용자 메모 */}
+        {item.isBig && (
+          <View className="px-4 py-2">
+            <Typo
+              variant="text-14_R"
+              className="leaing-[1.5]"
+              numberOfLines={2}
+              ellipsizeMode="tail"
+            >
+              {item.memo}
+            </Typo>
+          </View>
+        )}
+      </View>
     </TouchableOpacity>
   );
 };

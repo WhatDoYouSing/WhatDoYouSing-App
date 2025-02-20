@@ -6,7 +6,7 @@ export interface UserType {
 }
 
 export interface BaseContent {
-  type: string;
+  type?: string;
   id: number;
   user: UserType;
   created_at: string;
@@ -37,9 +37,6 @@ export interface QuoteCardType extends BaseContent {
   location_address?: string;
   lyric?: string;
   singer?: string;
-
-  isMy?: boolean;
-  isClicked?: boolean;
 }
 
 // PlaylistCard 타입
@@ -66,6 +63,7 @@ export interface SongInfoProps {
   singer: string;
   lyric: string;
   isBig?: boolean;
+  emotion?: string;
 }
 
 export interface PlaylistInfoProps {
