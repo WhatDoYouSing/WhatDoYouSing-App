@@ -6,18 +6,16 @@ import { cn } from 'utils/cn';
 interface QuoteCardProps {
   item: QuoteCardType;
   isClicked?: boolean;
+  isMy?: boolean;
 }
 
-const QuoteCard = ({ item, isClicked = false }: QuoteCardProps) => {
+const QuoteCard = ({ item, isClicked = false, isMy }: QuoteCardProps) => {
   const cardContent = (
     <View
-      className={cn(
-        'bg-primaryBg rounded-sm',
-        item.isMy ? 'pt-1 pb-2 gap-[2]' : 'py-2 gap-2'
-      )}
+      className={cn('bg-primaryBg rounded-sm', isMy ? 'pt-1 pb-2 gap-[2]' : 'py-2 gap-2')}
     >
       {/* 장소 정보 - 본인 노트 인용 시에만 표시 */}
-      {item.isMy && (
+      {isMy && (
         <View className="flex flex-col gap-[1] px-4 py-2">
           <Typo variant="text-12_L" className="leading-[1.3]">
             {item.location_name}
@@ -38,7 +36,7 @@ const QuoteCard = ({ item, isClicked = false }: QuoteCardProps) => {
       />
 
       {/* 사용자 메모 - 남의 노트 인용 시에만 표시 */}
-      {!item.isMy && (
+      {!isMy && (
         <View className="flex-col gap-3 px-4 pb-2">
           <DashedLine strokeWidth={0.5} />
           <View className="gap-1">

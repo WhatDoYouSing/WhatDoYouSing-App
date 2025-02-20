@@ -20,7 +20,7 @@ const initialField: UploadNoteFieldType = {
   location_name: '',
   location_address: '',
   emotion: 0,
-  visibility: VISIBILITY_OPTIONS[0].label,
+  visibility: VISIBILITY_OPTIONS[0].key,
   youtube_link: '',
   spotify_link: '',
 };
