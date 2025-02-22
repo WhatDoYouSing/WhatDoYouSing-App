@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { View } from 'react-native';
 import { Toast } from 'components/common';
 
-type Toast = {
+type ToastType = {
   id: string;
   message: string;
   icon?: string;
@@ -15,7 +15,7 @@ type ToastContextValue = {
 const ToastContext = createContext<ToastContextValue | null>(null);
 
 export const ToastProvider = ({ children }: { children: ReactNode }) => {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<ToastType[]>([]);
 
   const showToast = (message: string, icon?: string) => {
     const id = Date.now().toString(); // 토스트를 중첩해서 띄우기 위해 고유한 id 생성
