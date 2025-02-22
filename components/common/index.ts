@@ -2,6 +2,7 @@ import BottomMenu from './BottomMenu';
 import FilledButton from './FilledButton';
 import Header from './Header';
 import LNB from './LNB';
+import Toast from './Toast';
 import Typo from './Typo';
 import DashedBorder from './Card/DashedBorder';
 import DashedLine from './Card/DashedLine';
@@ -27,6 +28,7 @@ export {
   FilledButton,
   Header,
   LNB,
+  Toast,
   Typo,
   DashedBorder,
   DashedLine,

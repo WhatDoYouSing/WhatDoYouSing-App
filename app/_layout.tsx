@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import '../global.css';
 import BottomNavigator from 'navigation/BottomNavigator';
 import { Provider } from 'react-native-paper';
+import { ToastProvider } from 'contexts/ToastContext';
 
 // 로딩 중 화면 유지
 SplashScreen.preventAutoHideAsync();
@@ -33,7 +34,9 @@ const RootLayout = () => {
 
   return (
     <Provider>
-      <BottomNavigator />
+      <ToastProvider>
+        <BottomNavigator />
+      </ToastProvider>
     </Provider>
   );
 };

@@ -1,5 +1,6 @@
 import { ScrollView, View } from 'react-native';
 import { useUploadPlaylistContext } from 'contexts/UploadPlaylistContext';
+import { useToast } from 'contexts/ToastContext';
 
 import { FilledButton, FilterTags, Header, Typo } from 'components/common';
 import { PlaylistInfo } from 'components/upload';
@@ -8,6 +9,12 @@ import { useUploadTag } from 'hooks/useUploadTag';
 const PlaylistTagScreen = () => {
   const { quotedNotes, field } = useUploadPlaylistContext();
   const { selectedFilter, handleSelectedFilter } = useUploadTag();
+  const { showToast } = useToast();
+
+  const handleUpload = () => {
+    // 플리 업로드 로직...
+    showToast('플리 업로드가 완료되었어요!');
+  };
 
   return (
     <View className="flex-1 bg-primaryBg">
@@ -30,7 +37,7 @@ const PlaylistTagScreen = () => {
       </ScrollView>
 
       <View className="absolute bottom-4 w-full px-4">
-        <FilledButton text="완료" type={'solid'} />
+        <FilledButton text="완료" type={'solid'} onPress={handleUpload} />
       </View>
     </View>
   );
