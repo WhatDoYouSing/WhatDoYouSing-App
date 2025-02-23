@@ -1,25 +1,18 @@
 import React, { useRef, useMemo, useEffect } from 'react';
 import { Modal, View, TouchableOpacity, Animated, PanResponder } from 'react-native';
 import Typo from './Typo';
-import { IcSelectOff } from 'assets/svgs';
+import { IcDownload, IcLink, IcShare } from 'assets/svgs';
 
 interface BottomModalProps {
   isOpen: boolean;
   onClose: () => void;
   options?: { id: number; text: string; action: () => void }[];
-  hasCheckBox?: boolean;
   children?: React.ReactNode;
 }
 
 const DRAG_THRESHOLD = 50;
 
-const BottomModal = ({
-  isOpen,
-  onClose,
-  options = [],
-  hasCheckBox,
-  children,
-}: BottomModalProps) => {
+const BottomModal = ({ isOpen, onClose, options = [], children }: BottomModalProps) => {
   const translateY = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -63,6 +56,13 @@ const BottomModal = ({
     [onClose, translateY]
   );
 
+  // 아이콘이 필수적인 텍스트 정의
+  const ICON_MAP = {
+    '이미지로 저장': <IcDownload width={18} height={18} />,
+    '링크 복사': <IcLink width={18} height={18} />,
+    '인스타로 공유': <IcShare width={18} height={18} />,
+  };
+
   return (
     <Modal transparent animationType="none" visible={isOpen} onRequestClose={onClose}>
       <View className="flex-1">
@@ -102,7 +102,7 @@ const BottomModal = ({
                       isLast ? '' : 'border-b-[1px] border-borderBg'
                     }`}
                   >
-                    {hasCheckBox && <IcSelectOff width={18} height={18} />}
+                    {ICON_MAP[option.text] || null}
                     <Typo
                       variant="text-16_M"
                       className={option.text === '삭제' ? 'text-brand' : 'text-black'}
